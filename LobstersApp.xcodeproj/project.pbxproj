@@ -1,0 +1,464 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D8C11B5920CE759D00E3C325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C11B5820CE759D00E3C325 /* AppDelegate.swift */; };
+		D8C11B5B20CE759D00E3C325 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C11B5A20CE759D00E3C325 /* ViewController.swift */; };
+		D8C11B5E20CE759D00E3C325 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8C11B5C20CE759D00E3C325 /* Main.storyboard */; };
+		D8C11B6020CE759E00E3C325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8C11B5F20CE759E00E3C325 /* Assets.xcassets */; };
+		D8C11B6320CE759E00E3C325 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8C11B6120CE759E00E3C325 /* LaunchScreen.storyboard */; };
+		D8C11B6E20CE759E00E3C325 /* LobstersAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C11B6D20CE759E00E3C325 /* LobstersAppTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D8C11B6A20CE759E00E3C325 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8C11B4D20CE759D00E3C325 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8C11B5420CE759D00E3C325;
+			remoteInfo = LobstersApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D8C11B5520CE759D00E3C325 /* LobstersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LobstersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8C11B5820CE759D00E3C325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D8C11B5A20CE759D00E3C325 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D8C11B5D20CE759D00E3C325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D8C11B5F20CE759E00E3C325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D8C11B6220CE759E00E3C325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D8C11B6420CE759E00E3C325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8C11B6920CE759E00E3C325 /* LobstersAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LobstersAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8C11B6D20CE759E00E3C325 /* LobstersAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobstersAppTests.swift; sourceTree = "<group>"; };
+		D8C11B6F20CE759E00E3C325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D8C11B5220CE759D00E3C325 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8C11B6620CE759E00E3C325 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D8C11B4C20CE759D00E3C325 = {
+			isa = PBXGroup;
+			children = (
+				D8C11B5720CE759D00E3C325 /* LobstersApp */,
+				D8C11B6C20CE759E00E3C325 /* LobstersAppTests */,
+				D8C11B5620CE759D00E3C325 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D8C11B5620CE759D00E3C325 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8C11B5520CE759D00E3C325 /* LobstersApp.app */,
+				D8C11B6920CE759E00E3C325 /* LobstersAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D8C11B5720CE759D00E3C325 /* LobstersApp */ = {
+			isa = PBXGroup;
+			children = (
+				D8C11B5820CE759D00E3C325 /* AppDelegate.swift */,
+				D8C11B5A20CE759D00E3C325 /* ViewController.swift */,
+				D8C11B5C20CE759D00E3C325 /* Main.storyboard */,
+				D8C11B5F20CE759E00E3C325 /* Assets.xcassets */,
+				D8C11B6120CE759E00E3C325 /* LaunchScreen.storyboard */,
+				D8C11B6420CE759E00E3C325 /* Info.plist */,
+			);
+			path = LobstersApp;
+			sourceTree = "<group>";
+		};
+		D8C11B6C20CE759E00E3C325 /* LobstersAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				D8C11B6D20CE759E00E3C325 /* LobstersAppTests.swift */,
+				D8C11B6F20CE759E00E3C325 /* Info.plist */,
+			);
+			path = LobstersAppTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D8C11B5420CE759D00E3C325 /* LobstersApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8C11B7220CE759E00E3C325 /* Build configuration list for PBXNativeTarget "LobstersApp" */;
+			buildPhases = (
+				D8C11B5120CE759D00E3C325 /* Sources */,
+				D8C11B5220CE759D00E3C325 /* Frameworks */,
+				D8C11B5320CE759D00E3C325 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LobstersApp;
+			productName = LobstersApp;
+			productReference = D8C11B5520CE759D00E3C325 /* LobstersApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D8C11B6820CE759E00E3C325 /* LobstersAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8C11B7520CE759E00E3C325 /* Build configuration list for PBXNativeTarget "LobstersAppTests" */;
+			buildPhases = (
+				D8C11B6520CE759E00E3C325 /* Sources */,
+				D8C11B6620CE759E00E3C325 /* Frameworks */,
+				D8C11B6720CE759E00E3C325 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8C11B6B20CE759E00E3C325 /* PBXTargetDependency */,
+			);
+			name = LobstersAppTests;
+			productName = LobstersAppTests;
+			productReference = D8C11B6920CE759E00E3C325 /* LobstersAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D8C11B4D20CE759D00E3C325 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Doan Le Thieu";
+				TargetAttributes = {
+					D8C11B5420CE759D00E3C325 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					D8C11B6820CE759E00E3C325 = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = D8C11B5420CE759D00E3C325;
+					};
+				};
+			};
+			buildConfigurationList = D8C11B5020CE759D00E3C325 /* Build configuration list for PBXProject "LobstersApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D8C11B4C20CE759D00E3C325;
+			productRefGroup = D8C11B5620CE759D00E3C325 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D8C11B5420CE759D00E3C325 /* LobstersApp */,
+				D8C11B6820CE759E00E3C325 /* LobstersAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D8C11B5320CE759D00E3C325 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8C11B6320CE759E00E3C325 /* LaunchScreen.storyboard in Resources */,
+				D8C11B6020CE759E00E3C325 /* Assets.xcassets in Resources */,
+				D8C11B5E20CE759D00E3C325 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8C11B6720CE759E00E3C325 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D8C11B5120CE759D00E3C325 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8C11B5B20CE759D00E3C325 /* ViewController.swift in Sources */,
+				D8C11B5920CE759D00E3C325 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8C11B6520CE759E00E3C325 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8C11B6E20CE759E00E3C325 /* LobstersAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D8C11B6B20CE759E00E3C325 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8C11B5420CE759D00E3C325 /* LobstersApp */;
+			targetProxy = D8C11B6A20CE759E00E3C325 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D8C11B5C20CE759D00E3C325 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8C11B5D20CE759D00E3C325 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D8C11B6120CE759E00E3C325 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8C11B6220CE759E00E3C325 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D8C11B7020CE759E00E3C325 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D8C11B7120CE759E00E3C325 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D8C11B7320CE759E00E3C325 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LobstersApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.doanthieu.LobstersApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D8C11B7420CE759E00E3C325 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LobstersApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.doanthieu.LobstersApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D8C11B7620CE759E00E3C325 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LobstersAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.doanthieu.LobstersAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LobstersApp.app/LobstersApp";
+			};
+			name = Debug;
+		};
+		D8C11B7720CE759E00E3C325 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LobstersAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.doanthieu.LobstersAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LobstersApp.app/LobstersApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D8C11B5020CE759D00E3C325 /* Build configuration list for PBXProject "LobstersApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8C11B7020CE759E00E3C325 /* Debug */,
+				D8C11B7120CE759E00E3C325 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8C11B7220CE759E00E3C325 /* Build configuration list for PBXNativeTarget "LobstersApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8C11B7320CE759E00E3C325 /* Debug */,
+				D8C11B7420CE759E00E3C325 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8C11B7520CE759E00E3C325 /* Build configuration list for PBXNativeTarget "LobstersAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8C11B7620CE759E00E3C325 /* Debug */,
+				D8C11B7720CE759E00E3C325 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D8C11B4D20CE759D00E3C325 /* Project object */;
+}
