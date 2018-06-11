@@ -10,6 +10,10 @@
 		D8C11B5920CE759D00E3C325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C11B5820CE759D00E3C325 /* AppDelegate.swift */; };
 		D8C11B6020CE759E00E3C325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8C11B5F20CE759E00E3C325 /* Assets.xcassets */; };
 		D8C11B6320CE759E00E3C325 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8C11B6120CE759E00E3C325 /* LaunchScreen.storyboard */; };
+		D8D404B420CE80DC0028371C /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D404B320CE80DC0028371C /* Story.swift */; };
+		D8D404B620CE80F00028371C /* StoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D404B520CE80F00028371C /* StoryTests.swift */; };
+		D8D404B820CEB9470028371C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D404B720CEB9470028371C /* User.swift */; };
+		D8D404BA20CEB9530028371C /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D404B920CEB9530028371C /* UserTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +34,10 @@
 		D8C11B6420CE759E00E3C325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8C11B6920CE759E00E3C325 /* LobstersAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LobstersAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C11B6F20CE759E00E3C325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8D404B320CE80DC0028371C /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		D8D404B520CE80F00028371C /* StoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTests.swift; sourceTree = "<group>"; };
+		D8D404B720CEB9470028371C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D8D404B920CEB9530028371C /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				D8C11B5820CE759D00E3C325 /* AppDelegate.swift */,
+				D8D404B320CE80DC0028371C /* Story.swift */,
+				D8D404B720CEB9470028371C /* User.swift */,
 				D8C11B5F20CE759E00E3C325 /* Assets.xcassets */,
 				D8C11B6120CE759E00E3C325 /* LaunchScreen.storyboard */,
 				D8C11B6420CE759E00E3C325 /* Info.plist */,
@@ -82,6 +92,8 @@
 		D8C11B6C20CE759E00E3C325 /* LobstersAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				D8D404B520CE80F00028371C /* StoryTests.swift */,
+				D8D404B920CEB9530028371C /* UserTests.swift */,
 				D8C11B6F20CE759E00E3C325 /* Info.plist */,
 			);
 			path = LobstersAppTests;
@@ -141,6 +153,7 @@
 					};
 					D8C11B6820CE759E00E3C325 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 						TestTargetID = D8C11B5420CE759D00E3C325;
 					};
 				};
@@ -205,6 +218,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8C11B5920CE759D00E3C325 /* AppDelegate.swift in Sources */,
+				D8D404B420CE80DC0028371C /* Story.swift in Sources */,
+				D8D404B820CEB9470028371C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +227,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8D404BA20CEB9530028371C /* UserTests.swift in Sources */,
+				D8D404B620CE80F00028371C /* StoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +407,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LobstersAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -399,6 +417,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.doanthieu.LobstersAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LobstersApp.app/LobstersApp";
@@ -410,6 +429,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LobstersAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
