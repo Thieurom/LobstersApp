@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D8A7870120CECB33007D505D /* AppLaunchingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7870020CECB33007D505D /* AppLaunchingTests.swift */; };
+		D8A7870320CECDB9007D505D /* StoriesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7870220CECDB9007D505D /* StoriesViewControllerTests.swift */; };
+		D8A7870520CECE94007D505D /* StoriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7870420CECE94007D505D /* StoriesDataSource.swift */; };
+		D8A7870720CED21F007D505D /* StoriesDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7870620CED21F007D505D /* StoriesDataSourceTests.swift */; };
 		D8C11B5920CE759D00E3C325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C11B5820CE759D00E3C325 /* AppDelegate.swift */; };
 		D8C11B6020CE759E00E3C325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8C11B5F20CE759E00E3C325 /* Assets.xcassets */; };
 		D8C11B6320CE759E00E3C325 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8C11B6120CE759E00E3C325 /* LaunchScreen.storyboard */; };
@@ -30,6 +33,9 @@
 
 /* Begin PBXFileReference section */
 		D8A7870020CECB33007D505D /* AppLaunchingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchingTests.swift; sourceTree = "<group>"; };
+		D8A7870220CECDB9007D505D /* StoriesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewControllerTests.swift; sourceTree = "<group>"; };
+		D8A7870420CECE94007D505D /* StoriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesDataSource.swift; sourceTree = "<group>"; };
+		D8A7870620CED21F007D505D /* StoriesDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesDataSourceTests.swift; sourceTree = "<group>"; };
 		D8C11B5520CE759D00E3C325 /* LobstersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LobstersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C11B5820CE759D00E3C325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8C11B5F20CE759E00E3C325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,6 +92,7 @@
 				D8C11B5820CE759D00E3C325 /* AppDelegate.swift */,
 				D8D404B320CE80DC0028371C /* Story.swift */,
 				D8D404BB20CEC7C40028371C /* StoriesViewController.swift */,
+				D8A7870420CECE94007D505D /* StoriesDataSource.swift */,
 				D8D404B720CEB9470028371C /* User.swift */,
 				D8C11B5F20CE759E00E3C325 /* Assets.xcassets */,
 				D8C11B6120CE759E00E3C325 /* LaunchScreen.storyboard */,
@@ -98,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				D8D404B520CE80F00028371C /* StoryTests.swift */,
+				D8A7870620CED21F007D505D /* StoriesDataSourceTests.swift */,
+				D8A7870220CECDB9007D505D /* StoriesViewControllerTests.swift */,
 				D8D404B920CEB9530028371C /* UserTests.swift */,
 				D8A7870020CECB33007D505D /* AppLaunchingTests.swift */,
 				D8C11B6F20CE759E00E3C325 /* Info.plist */,
@@ -227,6 +236,7 @@
 				D8D404B420CE80DC0028371C /* Story.swift in Sources */,
 				D8D404BC20CEC7C40028371C /* StoriesViewController.swift in Sources */,
 				D8D404B820CEB9470028371C /* User.swift in Sources */,
+				D8A7870520CECE94007D505D /* StoriesDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +244,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8A7870720CED21F007D505D /* StoriesDataSourceTests.swift in Sources */,
+				D8A7870320CECDB9007D505D /* StoriesViewControllerTests.swift in Sources */,
 				D8A7870120CECB33007D505D /* AppLaunchingTests.swift in Sources */,
 				D8D404BA20CEB9530028371C /* UserTests.swift in Sources */,
 				D8D404B620CE80F00028371C /* StoryTests.swift in Sources */,
