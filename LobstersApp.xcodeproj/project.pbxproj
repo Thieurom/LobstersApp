@@ -8,11 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D8C11B5920CE759D00E3C325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C11B5820CE759D00E3C325 /* AppDelegate.swift */; };
-		D8C11B5B20CE759D00E3C325 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C11B5A20CE759D00E3C325 /* ViewController.swift */; };
-		D8C11B5E20CE759D00E3C325 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8C11B5C20CE759D00E3C325 /* Main.storyboard */; };
 		D8C11B6020CE759E00E3C325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8C11B5F20CE759E00E3C325 /* Assets.xcassets */; };
 		D8C11B6320CE759E00E3C325 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8C11B6120CE759E00E3C325 /* LaunchScreen.storyboard */; };
-		D8C11B6E20CE759E00E3C325 /* LobstersAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C11B6D20CE759E00E3C325 /* LobstersAppTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,13 +25,10 @@
 /* Begin PBXFileReference section */
 		D8C11B5520CE759D00E3C325 /* LobstersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LobstersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C11B5820CE759D00E3C325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D8C11B5A20CE759D00E3C325 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D8C11B5D20CE759D00E3C325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8C11B5F20CE759E00E3C325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8C11B6220CE759E00E3C325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8C11B6420CE759E00E3C325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8C11B6920CE759E00E3C325 /* LobstersAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LobstersAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8C11B6D20CE759E00E3C325 /* LobstersAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobstersAppTests.swift; sourceTree = "<group>"; };
 		D8C11B6F20CE759E00E3C325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,8 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				D8C11B5820CE759D00E3C325 /* AppDelegate.swift */,
-				D8C11B5A20CE759D00E3C325 /* ViewController.swift */,
-				D8C11B5C20CE759D00E3C325 /* Main.storyboard */,
 				D8C11B5F20CE759E00E3C325 /* Assets.xcassets */,
 				D8C11B6120CE759E00E3C325 /* LaunchScreen.storyboard */,
 				D8C11B6420CE759E00E3C325 /* Info.plist */,
@@ -90,7 +82,6 @@
 		D8C11B6C20CE759E00E3C325 /* LobstersAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				D8C11B6D20CE759E00E3C325 /* LobstersAppTests.swift */,
 				D8C11B6F20CE759E00E3C325 /* Info.plist */,
 			);
 			path = LobstersAppTests;
@@ -179,7 +170,6 @@
 			files = (
 				D8C11B6320CE759E00E3C325 /* LaunchScreen.storyboard in Resources */,
 				D8C11B6020CE759E00E3C325 /* Assets.xcassets in Resources */,
-				D8C11B5E20CE759D00E3C325 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +187,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8C11B5B20CE759D00E3C325 /* ViewController.swift in Sources */,
 				D8C11B5920CE759D00E3C325 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,7 +195,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8C11B6E20CE759E00E3C325 /* LobstersAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,14 +209,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D8C11B5C20CE759D00E3C325 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D8C11B5D20CE759D00E3C325 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D8C11B6120CE759E00E3C325 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -367,7 +347,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.doanthieu.LobstersApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -384,7 +364,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.doanthieu.LobstersApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
