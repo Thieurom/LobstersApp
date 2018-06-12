@@ -30,7 +30,26 @@ class StoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initViews()
+        setUpViews()
+    }
+    
+    // MARK: - Private helpers
+    
+    func initViews() {
         view.addSubview(collectionView)
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
+    }
+    
+    func setUpViews() {
+        collectionView.register(StoryViewCell.self, forCellWithReuseIdentifier: "StoryViewCell")
         
         storiesDataSource = StoriesDataSource()
         collectionView.dataSource = storiesDataSource
