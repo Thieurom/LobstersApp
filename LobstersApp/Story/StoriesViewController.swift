@@ -12,7 +12,8 @@ class StoriesViewController: UIViewController {
     
     // MARK: - Data
     
-    var storiesDataSource: StoriesDataSource!
+    private let storiesLoader: StoriesLoader
+    private var storiesDataSource: StoriesDataSource!
     
     // MARK: - Views
     
@@ -24,6 +25,17 @@ class StoriesViewController: UIViewController {
         
         return collectionView
     }()
+    
+    // MARK: - Initializer
+    
+    init(storiesLoader: StoriesLoader) {
+        self.storiesLoader = storiesLoader
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - View life cycle
     

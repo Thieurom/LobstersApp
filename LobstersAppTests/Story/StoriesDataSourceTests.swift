@@ -20,7 +20,9 @@ class StoriesDataSourceTests: XCTestCase {
         super.setUp()
         
         sut = StoriesDataSource()
-        controller = StoriesViewController()
+        
+        let storiesLoader = StoriesLoader(lobstersService: LobstersService())
+        controller = StoriesViewController(storiesLoader: storiesLoader)
         controller.loadViewIfNeeded()
         
         collectionView = controller.collectionView

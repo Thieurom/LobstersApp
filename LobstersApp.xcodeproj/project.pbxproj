@@ -10,6 +10,8 @@
 		D80F903620CFC78100F3D392 /* URLRequest+JSONRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F903520CFC78100F3D392 /* URLRequest+JSONRequest.swift */; };
 		D80F903920CFD04600F3D392 /* StoriesTestData.json in Resources */ = {isa = PBXBuildFile; fileRef = D80F903820CFD04600F3D392 /* StoriesTestData.json */; };
 		D80F903D20D0EFA400F3D392 /* DateFormatter+ISO8601Full.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F903C20D0EFA400F3D392 /* DateFormatter+ISO8601Full.swift */; };
+		D80F903F20D1055100F3D392 /* StoriesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F903E20D1055100F3D392 /* StoriesLoader.swift */; };
+		D80F904120D1059A00F3D392 /* StoriesLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F904020D1059A00F3D392 /* StoriesLoaderTests.swift */; };
 		D868C1B220CFC67400D9421D /* URL+AppendingQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = D868C1B120CFC67400D9421D /* URL+AppendingQueries.swift */; };
 		D8A7870120CECB33007D505D /* AppLaunchingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7870020CECB33007D505D /* AppLaunchingTests.swift */; };
 		D8A7870320CECDB9007D505D /* StoriesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7870220CECDB9007D505D /* StoriesViewControllerTests.swift */; };
@@ -43,6 +45,8 @@
 		D80F903520CFC78100F3D392 /* URLRequest+JSONRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+JSONRequest.swift"; sourceTree = "<group>"; };
 		D80F903820CFD04600F3D392 /* StoriesTestData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StoriesTestData.json; sourceTree = "<group>"; };
 		D80F903C20D0EFA400F3D392 /* DateFormatter+ISO8601Full.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+ISO8601Full.swift"; sourceTree = "<group>"; };
+		D80F903E20D1055100F3D392 /* StoriesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesLoader.swift; sourceTree = "<group>"; };
+		D80F904020D1059A00F3D392 /* StoriesLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesLoaderTests.swift; sourceTree = "<group>"; };
 		D868C1B120CFC67400D9421D /* URL+AppendingQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+AppendingQueries.swift"; sourceTree = "<group>"; };
 		D8A7870020CECB33007D505D /* AppLaunchingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchingTests.swift; sourceTree = "<group>"; };
 		D8A7870220CECDB9007D505D /* StoriesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewControllerTests.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 				D8A7870820CED889007D505D /* StoryViewCell.swift */,
 				D8D404BB20CEC7C40028371C /* StoriesViewController.swift */,
 				D8A7870420CECE94007D505D /* StoriesDataSource.swift */,
+				D80F903E20D1055100F3D392 /* StoriesLoader.swift */,
 			);
 			path = Story;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 				D8D404B520CE80F00028371C /* StoryTests.swift */,
 				D8A7870620CED21F007D505D /* StoriesDataSourceTests.swift */,
 				D8A7870220CECDB9007D505D /* StoriesViewControllerTests.swift */,
+				D80F904020D1059A00F3D392 /* StoriesLoaderTests.swift */,
 			);
 			path = Story;
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 			files = (
 				D8C11B5920CE759D00E3C325 /* AppDelegate.swift in Sources */,
 				D80F903620CFC78100F3D392 /* URLRequest+JSONRequest.swift in Sources */,
+				D80F903F20D1055100F3D392 /* StoriesLoader.swift in Sources */,
 				D8D404B420CE80DC0028371C /* Story.swift in Sources */,
 				D8A7870F20CFBA92007D505D /* LobstersURL.swift in Sources */,
 				D80F903D20D0EFA400F3D392 /* DateFormatter+ISO8601Full.swift in Sources */,
@@ -333,6 +340,7 @@
 			files = (
 				D8A7870720CED21F007D505D /* StoriesDataSourceTests.swift in Sources */,
 				D8A7870320CECDB9007D505D /* StoriesViewControllerTests.swift in Sources */,
+				D80F904120D1059A00F3D392 /* StoriesLoaderTests.swift in Sources */,
 				D8A7870120CECB33007D505D /* AppLaunchingTests.swift in Sources */,
 				D8D404BA20CEB9530028371C /* UserTests.swift in Sources */,
 				D8D404B620CE80F00028371C /* StoryTests.swift in Sources */,
