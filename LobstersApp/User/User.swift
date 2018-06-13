@@ -11,3 +11,17 @@ import Foundation
 struct User {
     var name: String
 }
+
+// MARK: - User Decodable
+
+extension User: Decodable {
+    
+    private enum CodingKeys: String, CodingKey {
+        case name = "username"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try values.decode(String.self, forKey: .name)
+    }
+}

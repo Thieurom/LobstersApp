@@ -1,0 +1,698 @@
+[
+ {
+     "short_id": "05p8fh",
+     "short_id_url": "https:\/\/lobste.rs\/s\/05p8fh",
+     "created_at": "2018-06-11T12:24:53.000-05:00",
+     "title": "Formally Specifying UIs",
+     "url": "https:\/\/www.hillelwayne.com\/post\/formally-specifying-uis\/",
+     "score": 23,
+     "upvotes": 23,
+     "downvotes": 0,
+     "comment_count": 6,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/05p8fh\/formally_specifying_uis",
+     "submitter_user": {
+         "username": "hwayne",
+         "created_at": "2016-12-01T13:09:45.000-06:00",
+         "is_admin": false,
+         "about": "I'm a programmer in the Chicago area. I like writing about weird programming techniques. Outside of programming I'm an avid juggler and chocolatier.",
+         "is_moderator": false,
+         "karma": 4361,
+         "avatar_url": "\/avatars\/hwayne-100.png",
+         "invited_by_user": "flyingfisch",
+         "github_username": "hwayne",
+         "twitter_username": "Hillelogram"
+     },
+     "tags": [
+     "design",
+     "formalmethods"
+     ]
+ },
+ {
+     "short_id": "txpia8",
+     "short_id_url": "https:\/\/lobste.rs\/s\/txpia8",
+     "created_at": "2018-06-11T20:28:29.000-05:00",
+     "title": "CopperheadOS Has Imploded",
+     "url": "https:\/\/twitter.com\/DanielMicay\/status\/1006299769214562305",
+     "score": 15,
+     "upvotes": 15,
+     "downvotes": 0,
+     "comment_count": 5,
+     "description": "<p><a href=\"https:\/\/www.reddit.com\/r\/CopperheadOS\/comments\/8qdnn3\/goodbye\/\" rel=\"nofollow\">Reddit<\/a>. <a href=\"https:\/\/news.ycombinator.com\/item?id=17289536\" rel=\"nofollow\">Hacker News<\/a>.<\/p>\n",
+     "comments_url": "https:\/\/lobste.rs\/s\/txpia8\/copperheados_has_imploded",
+     "submitter_user": {
+         "username": "nickpsecurity",
+         "created_at": "2016-07-28T14:11:08.000-05:00",
+         "is_admin": false,
+         "about": "Security engineer\/researcher specializing in high-assurance solutions. Especially countering subversion or attacks from high-strength attackers. Also, try to dig up and post insights from academic research, CompSci history, and obscure sources. ",
+         "is_moderator": false,
+         "karma": 11222,
+         "avatar_url": "\/avatars\/nickpsecurity-100.png",
+         "invited_by_user": "tedu"
+     },
+     "tags": [
+     "android",
+     "security"
+     ]
+ },
+ {
+     "short_id": "xnlodm",
+     "short_id_url": "https:\/\/lobste.rs\/s\/xnlodm",
+     "created_at": "2018-06-12T04:00:14.000-05:00",
+     "title": "Run Envoy in place of docker-proxy & get metrics, tracing for free",
+     "url": "https:\/\/github.com\/Nitro\/envoy-docker-shim",
+     "score": 3,
+     "upvotes": 3,
+     "downvotes": 0,
+     "comment_count": 0,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/xnlodm\/run_envoy_place_docker_proxy_get_metrics",
+     "submitter_user": {
+         "username": "relistan",
+         "created_at": "2017-12-05T05:14:35.000-06:00",
+         "is_admin": false,
+         "about": "Principal Systems Engineer at Nitro (http:\/\/gonitro.com\/). Co-Author of O'Reilly Media's \"Docker: Up and Running\".",
+         "is_moderator": false,
+         "karma": 2,
+         "avatar_url": "\/avatars\/relistan-100.png",
+         "invited_by_user": "mihaitodor"
+     },
+     "tags": [
+     "distributed",
+     "linux",
+     "networking"
+     ]
+ },
+ {
+     "short_id": "mnfs82",
+     "short_id_url": "https:\/\/lobste.rs\/s\/mnfs82",
+     "created_at": "2018-06-11T14:22:23.000-05:00",
+     "title": "On my misalignment with Apple's love affair with Swift",
+     "url": "https:\/\/rant.monkeydom.de\/posts\/2018\/06\/10\/on-my-misalignment-with-apple_s-love-affair-with-swift",
+     "score": 13,
+     "upvotes": 13,
+     "downvotes": 0,
+     "comment_count": 10,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/mnfs82\/on_my_misalignment_with_apple_s_love",
+     "submitter_user": {
+         "username": "iv",
+         "created_at": "2013-01-02T07:31:13.000-06:00",
+         "is_admin": false,
+         "about": "",
+         "is_moderator": false,
+         "karma": 578,
+         "avatar_url": "\/avatars\/iv-100.png",
+         "invited_by_user": "puffnfresh"
+     },
+     "tags": [
+     "swift"
+     ]
+ },
+ {
+     "short_id": "smw06g",
+     "short_id_url": "https:\/\/lobste.rs\/s\/smw06g",
+     "created_at": "2018-06-11T15:27:08.000-05:00",
+     "title": "The Google H1 Fritz Chip",
+     "url": "http:\/\/www.loper-os.org\/?p=2433",
+     "score": 10,
+     "upvotes": 11,
+     "downvotes": 1,
+     "comment_count": 7,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/smw06g\/google_h1_fritz_chip",
+     "submitter_user": {
+         "username": "chadski",
+         "created_at": "2014-11-24T19:11:44.000-06:00",
+         "is_admin": false,
+         "about": "Too many programming languages, too little time!\r\n\r\nCurrently employed by Microsoft.\r\n\r\nGithub: https:\/\/github.com\/ChadSki\/",
+         "is_moderator": false,
+         "karma": 3060,
+         "avatar_url": "\/avatars\/chadski-100.png",
+         "invited_by_user": "avita1"
+     },
+     "tags": [
+     "hardware",
+     "reversing",
+     "security"
+     ]
+ },
+ {
+     "short_id": "sq2bjp",
+     "short_id_url": "https:\/\/lobste.rs\/s\/sq2bjp",
+     "created_at": "2018-06-11T15:28:22.000-05:00",
+     "title": "Lenses embody Products, Prisms embody Sums",
+     "url": "https:\/\/blog.jle.im\/entry\/lenses-products-prisms-sums.html",
+     "score": 10,
+     "upvotes": 10,
+     "downvotes": 0,
+     "comment_count": 2,
+     "description": "<p>An in-depth look into a classic lens \/ prism perspective in haskell highlighting the insights that can be gleamed<\/p>\n",
+     "comments_url": "https:\/\/lobste.rs\/s\/sq2bjp\/lenses_embody_products_prisms_embody",
+     "submitter_user": {
+         "username": "jle",
+         "created_at": "2014-07-25T17:33:57.000-05:00",
+         "is_admin": false,
+         "about": "jle.im",
+         "is_moderator": false,
+         "karma": 64,
+         "avatar_url": "\/avatars\/jle-100.png",
+         "invited_by_user": "bitemyapp",
+         "twitter_username": "mstk"
+     },
+     "tags": [
+     "haskell"
+     ]
+ },
+ {
+     "short_id": "zdsnbt",
+     "short_id_url": "https:\/\/lobste.rs\/s\/zdsnbt",
+     "created_at": "2018-06-11T18:03:24.000-05:00",
+     "title": "More Hints for Writing Unix Tools",
+     "url": "http:\/\/www.mariocampos.io\/blog\/more-unix-tools-hints\/",
+     "score": 8,
+     "upvotes": 8,
+     "downvotes": 0,
+     "comment_count": 3,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/zdsnbt\/more_hints_for_writing_unix_tools",
+     "submitter_user": {
+         "username": "calvin",
+         "created_at": "2014-07-01T06:47:13.000-05:00",
+         "is_admin": false,
+         "about": "Soon we will all have special names... names designed to make the cathode ray tube resonate.\r\n\r\nFediverse: [@calvin@cronk.stenoweb.net](https:\/\/cronk.stenoweb.net\/@calvin)\r\n\r\nXMPP: calvin [at] snacki.ca",
+         "is_moderator": false,
+         "karma": 28366,
+         "avatar_url": "\/avatars\/calvin-100.png",
+         "invited_by_user": "nbyouri",
+         "github_username": "NattyNarwhal"
+     },
+     "tags": [
+     "programming",
+     "unix"
+     ]
+ },
+ {
+     "short_id": "jx0lpq",
+     "short_id_url": "https:\/\/lobste.rs\/s\/jx0lpq",
+     "created_at": "2018-06-11T13:53:17.000-05:00",
+     "title": "Developers Should Abandon Agile",
+     "url": "http:\/\/ronjeffries.com\/articles\/018-01ff\/abandon-1\/",
+     "score": 14,
+     "upvotes": 15,
+     "downvotes": 1,
+     "comment_count": 3,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/jx0lpq\/developers_should_abandon_agile",
+     "submitter_user": {
+         "username": "fcbsd",
+         "created_at": "2014-01-15T14:55:15.000-06:00",
+         "is_admin": false,
+         "about": "**Fred Crowson**\r\n\r\n*BSD user, sys admin, BMX Coach*\r\n\r\nRunning on an [OpenBSD](https:\/\/www.openbsd.org\/) Desktop since 2001 :~)\r\n\r\nhttp:\/\/www.schoolio.co.uk\/",
+         "is_moderator": false,
+         "karma": 3076,
+         "avatar_url": "\/avatars\/fcbsd-100.png",
+         "invited_by_user": "jm"
+     },
+     "tags": [
+     "practices",
+     "programming"
+     ]
+ },
+ {
+     "short_id": "btycfp",
+     "short_id_url": "https:\/\/lobste.rs\/s\/btycfp",
+     "created_at": "2018-06-12T02:15:08.000-05:00",
+     "title": "Microsoft\u2019s failed attempt on Debian packaging",
+     "url": "https:\/\/www.preining.info\/blog\/2018\/06\/microsofts-failed-attempt-on-debian-packaging\/",
+     "score": 3,
+     "upvotes": 3,
+     "downvotes": 0,
+     "comment_count": 1,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/btycfp\/microsoft_s_failed_attempt_on_debian",
+     "submitter_user": {
+         "username": "unhammer",
+         "created_at": "2017-08-31T08:37:40.000-05:00",
+         "is_admin": false,
+         "about": "https:\/\/unhammer.org\/k\/",
+         "is_moderator": false,
+         "karma": 99,
+         "avatar_url": "\/avatars\/unhammer-100.png",
+         "invited_by_user": "julienXX",
+         "github_username": "unhammer",
+         "twitter_username": "unhammer"
+     },
+     "tags": [
+     "security"
+     ]
+ },
+ {
+     "short_id": "kq40hu",
+     "short_id_url": "https:\/\/lobste.rs\/s\/kq40hu",
+     "created_at": "2018-06-11T06:14:26.000-05:00",
+     "title": "Forget reusability, aim for perfection: New lessons from mandoc",
+     "url": "https:\/\/www.openbsd.org\/papers\/bsdcan18-mandoc.pdf",
+     "score": 19,
+     "upvotes": 19,
+     "downvotes": 0,
+     "comment_count": 8,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/kq40hu\/forget_reusability_aim_for_perfection",
+     "submitter_user": {
+         "username": "calvin",
+         "created_at": "2014-07-01T06:47:13.000-05:00",
+         "is_admin": false,
+         "about": "Soon we will all have special names... names designed to make the cathode ray tube resonate.\r\n\r\nFediverse: [@calvin@cronk.stenoweb.net](https:\/\/cronk.stenoweb.net\/@calvin)\r\n\r\nXMPP: calvin [at] snacki.ca",
+         "is_moderator": false,
+         "karma": 28366,
+         "avatar_url": "\/avatars\/calvin-100.png",
+         "invited_by_user": "nbyouri",
+         "github_username": "NattyNarwhal"
+     },
+     "tags": [
+     "api",
+     "openbsd",
+     "pdf",
+     "practices",
+     "programming",
+     "slides"
+     ]
+ },
+ {
+     "short_id": "lmbkha",
+     "short_id_url": "https:\/\/lobste.rs\/s\/lmbkha",
+     "created_at": "2018-06-10T22:28:32.000-05:00",
+     "title": "A Gentle Intro to PLT (Programming Language Theory)",
+     "url": "https:\/\/mpc.sh\/blog\/a-gentle-intro-to-plt\/",
+     "score": 27,
+     "upvotes": 27,
+     "downvotes": 0,
+     "comment_count": 9,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/lmbkha\/gentle_intro_plt_programming_language",
+     "submitter_user": {
+         "username": "mpcsh",
+         "created_at": "2016-07-22T09:27:55.000-05:00",
+         "is_admin": false,
+         "about": "",
+         "is_moderator": false,
+         "karma": 122,
+         "avatar_url": "\/avatars\/mpcsh-100.png",
+         "invited_by_user": "ngoldbaum",
+         "github_username": "mpcsh"
+     },
+     "tags": [
+     "compilers",
+     "compsci",
+     "ml",
+     "plt"
+     ]
+ },
+ {
+     "short_id": "mnar1l",
+     "short_id_url": "https:\/\/lobste.rs\/s\/mnar1l",
+     "created_at": "2018-06-11T14:21:51.000-05:00",
+     "title": "Judging Books by Their Covers",
+     "url": "http:\/\/www.textbookleague.org\/103feyn.htm",
+     "score": 12,
+     "upvotes": 13,
+     "downvotes": 1,
+     "comment_count": 2,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/mnar1l\/judging_books_by_their_covers",
+     "submitter_user": {
+         "username": "stark",
+         "created_at": "2017-01-26T16:17:25.000-06:00",
+         "is_admin": false,
+         "about": "",
+         "is_moderator": false,
+         "karma": 28,
+         "avatar_url": "\/avatars\/stark-100.png",
+         "invited_by_user": "flyingfisch",
+         "github_username": "stark"
+     },
+     "tags": [
+     "historical",
+     "practices"
+     ]
+ },
+ {
+     "short_id": "xcglbl",
+     "short_id_url": "https:\/\/lobste.rs\/s\/xcglbl",
+     "created_at": "2018-06-11T04:28:00.000-05:00",
+     "title": "Neovim v0.3.0 released",
+     "url": "https:\/\/github.com\/neovim\/neovim\/releases\/tag\/v0.3.0",
+     "score": 30,
+     "upvotes": 30,
+     "downvotes": 0,
+     "comment_count": 3,
+     "description": "<p><a href=\"https:\/\/github.com\/neovim\/neovim\/commit\/44c6deb91ac917703c157d564eb3accbff4d37af\" rel=\"nofollow\">Changelog<\/a><\/p>\n",
+     "comments_url": "https:\/\/lobste.rs\/s\/xcglbl\/neovim_v0_3_0_released",
+     "submitter_user": {
+         "username": "geier",
+         "created_at": "2014-07-03T13:41:55.000-05:00",
+         "is_admin": false,
+         "about": "* find me on [github](https:\/\/github.com\/geier\/)\r\n* [khal](https:\/\/github.com\/pimutils\/khal) - calendaring on the command line",
+         "is_moderator": false,
+         "karma": 549,
+         "avatar_url": "\/avatars\/geier-100.png",
+         "invited_by_user": "jasonwryan",
+         "github_username": "geier"
+     },
+     "tags": [
+     "release",
+     "vim"
+     ]
+ },
+ {
+     "short_id": "zvlr4t",
+     "short_id_url": "https:\/\/lobste.rs\/s\/zvlr4t",
+     "created_at": "2018-06-11T22:12:40.000-05:00",
+     "title": "A Web Server Unikernel in Rust",
+     "url": "https:\/\/rajiv256.github.io\/projects\/ouros\/",
+     "score": 5,
+     "upvotes": 5,
+     "downvotes": 0,
+     "comment_count": 0,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/zvlr4t\/web_server_unikernel_rust",
+     "submitter_user": {
+         "username": "sanxiyn",
+         "created_at": "2015-01-21T09:51:34.000-06:00",
+         "is_admin": false,
+         "about": "I made the initial port of Rust to ARM and Android.",
+         "is_moderator": false,
+         "karma": 2967,
+         "avatar_url": "\/avatars\/sanxiyn-100.png",
+         "invited_by_user": "steveklabnik",
+         "github_username": "sanxiyn"
+     },
+     "tags": [
+     "rust"
+     ]
+ },
+ {
+     "short_id": "qpgzum",
+     "short_id_url": "https:\/\/lobste.rs\/s\/qpgzum",
+     "created_at": "2018-06-11T20:03:23.000-05:00",
+     "title": "Web Prolog and the Programmable Prolog Web: An Attempt to Make Prolog Great Again",
+     "url": "https:\/\/github.com\/Web-Prolog\/swi-web-prolog\/raw\/master\/web-client\/apps\/swish\/web-prolog.pdf",
+     "score": 4,
+     "upvotes": 4,
+     "downvotes": 0,
+     "comment_count": 2,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/qpgzum\/web_prolog_programmable_prolog_web",
+     "submitter_user": {
+         "username": "nickpsecurity",
+         "created_at": "2016-07-28T14:11:08.000-05:00",
+         "is_admin": false,
+         "about": "Security engineer\/researcher specializing in high-assurance solutions. Especially countering subversion or attacks from high-strength attackers. Also, try to dig up and post insights from academic research, CompSci history, and obscure sources. ",
+         "is_moderator": false,
+         "karma": 11222,
+         "avatar_url": "\/avatars\/nickpsecurity-100.png",
+         "invited_by_user": "tedu"
+     },
+     "tags": [
+     "pdf",
+     "programming",
+     "web"
+     ]
+ },
+ {
+     "short_id": "wf1pdq",
+     "short_id_url": "https:\/\/lobste.rs\/s\/wf1pdq",
+     "created_at": "2018-06-11T13:00:21.000-05:00",
+     "title": "How to Prevent Your Users from Using Breached Passwords",
+     "url": "https:\/\/developer.okta.com\/blog\/2018\/06\/11\/how-to-prevent-your-users-from-using-breached-passwords",
+     "score": 6,
+     "upvotes": 6,
+     "downvotes": 0,
+     "comment_count": 0,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/wf1pdq\/how_prevent_your_users_from_using",
+     "submitter_user": {
+         "username": "rdegges",
+         "created_at": "2012-09-28T17:08:04.000-05:00",
+         "is_admin": false,
+         "about": "I'm just a happy programmer that likes to hack stuff.",
+         "is_moderator": false,
+         "karma": 315,
+         "avatar_url": "\/avatars\/rdegges-100.png",
+         "invited_by_user": "craigkerstiens"
+     },
+     "tags": [
+     "javascript",
+     "programming",
+     "security"
+     ]
+ },
+ {
+     "short_id": "tezghg",
+     "short_id_url": "https:\/\/lobste.rs\/s\/tezghg",
+     "created_at": "2018-06-11T16:36:36.000-05:00",
+     "title": "BetterC: Converting make.c to D",
+     "url": "https:\/\/dlang.org\/blog\/2018\/06\/11\/dasbetterc-converting-make-c-to-d\/",
+     "score": 5,
+     "upvotes": 5,
+     "downvotes": 0,
+     "comment_count": 0,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/tezghg\/betterc_converting_make_c_d",
+     "submitter_user": {
+         "username": "sanxiyn",
+         "created_at": "2015-01-21T09:51:34.000-06:00",
+         "is_admin": false,
+         "about": "I made the initial port of Rust to ARM and Android.",
+         "is_moderator": false,
+         "karma": 2967,
+         "avatar_url": "\/avatars\/sanxiyn-100.png",
+         "invited_by_user": "steveklabnik",
+         "github_username": "sanxiyn"
+     },
+     "tags": [
+     "d"
+     ]
+ },
+ {
+     "short_id": "rqkk7n",
+     "short_id_url": "https:\/\/lobste.rs\/s\/rqkk7n",
+     "created_at": "2018-06-11T21:33:02.000-05:00",
+     "title": "Working With Neo4j Date And Spatial Types In A React.js App",
+     "url": "https:\/\/medium.com\/neo4j\/working-with-neo4j-date-and-spatial-types-in-a-react-js-app-5475b5042b50",
+     "score": 1,
+     "upvotes": 1,
+     "downvotes": 0,
+     "comment_count": 0,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/rqkk7n\/working_with_neo4j_date_spatial_types",
+     "submitter_user": {
+         "username": "lyonwj",
+         "created_at": "2015-03-04T20:53:41.000-06:00",
+         "is_admin": false,
+         "about": "lyonwj.com\r\n@lyonwj",
+         "is_moderator": false,
+         "karma": 35,
+         "avatar_url": "\/avatars\/lyonwj-100.png",
+         "invited_by_user": "glesica"
+     },
+     "tags": [
+     "databases",
+     "javascript",
+     "visualization"
+     ]
+ },
+ {
+     "short_id": "bey3qx",
+     "short_id_url": "https:\/\/lobste.rs\/s\/bey3qx",
+     "created_at": "2018-06-11T07:08:24.000-05:00",
+     "title": "slaacd(8) - A privilege separated and sandboxed IPv6 Stateless Address AutoConfiguration Daemon",
+     "url": "https:\/\/www.openbsd.org\/papers\/florian_slaacd_bsdcan2018.pdf",
+     "score": 15,
+     "upvotes": 15,
+     "downvotes": 0,
+     "comment_count": 0,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/bey3qx\/slaacd_8_privilege_separated_sandboxed",
+     "submitter_user": {
+         "username": "calvin",
+         "created_at": "2014-07-01T06:47:13.000-05:00",
+         "is_admin": false,
+         "about": "Soon we will all have special names... names designed to make the cathode ray tube resonate.\r\n\r\nFediverse: [@calvin@cronk.stenoweb.net](https:\/\/cronk.stenoweb.net\/@calvin)\r\n\r\nXMPP: calvin [at] snacki.ca",
+         "is_moderator": false,
+         "karma": 28366,
+         "avatar_url": "\/avatars\/calvin-100.png",
+         "invited_by_user": "nbyouri",
+         "github_username": "NattyNarwhal"
+     },
+     "tags": [
+     "networking",
+     "openbsd",
+     "pdf",
+     "slides"
+     ]
+ },
+ {
+     "short_id": "cw0yij",
+     "short_id_url": "https:\/\/lobste.rs\/s\/cw0yij",
+     "created_at": "2018-06-11T09:51:09.000-05:00",
+     "title": "Materialized views with PostgreSQL for beginners",
+     "url": "https:\/\/medium.com\/jobteaser-dev-team\/materialized-views-with-postgresql-for-beginners-9809483db35f",
+     "score": 6,
+     "upvotes": 6,
+     "downvotes": 0,
+     "comment_count": 2,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/cw0yij\/materialized_views_with_postgresql_for",
+     "submitter_user": {
+         "username": "craigkerstiens",
+         "created_at": "2012-09-13T15:45:46.000-05:00",
+         "is_admin": false,
+         "about": "Product Guy at Citus",
+         "is_moderator": false,
+         "karma": 723,
+         "avatar_url": "\/avatars\/craigkerstiens-100.png",
+         "invited_by_user": "wycats"
+     },
+     "tags": [
+     "databases"
+     ]
+ },
+ {
+     "short_id": "u0rz4c",
+     "short_id_url": "https:\/\/lobste.rs\/s\/u0rz4c",
+     "created_at": "2018-06-11T07:54:39.000-05:00",
+     "title": "HART: Homeland Security\u2019s Massive New Database Will Include Face Recognition, DNA, and Peoples\u2019 \u201cNon-Obvious Relationships\u201d",
+     "url": "https:\/\/www.eff.org\/deeplinks\/2018\/06\/hart-homeland-securitys-massive-new-database-will-include-face-recognition-dna-and",
+     "score": 8,
+     "upvotes": 9,
+     "downvotes": 1,
+     "comment_count": 4,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/u0rz4c\/hart_homeland_security_s_massive_new",
+     "submitter_user": {
+         "username": "Shamar",
+         "created_at": "2017-02-22T11:45:32.000-06:00",
+         "is_admin": false,
+         "about": "",
+         "is_moderator": false,
+         "karma": 745,
+         "avatar_url": "\/avatars\/Shamar-100.png",
+         "invited_by_user": "flyingfisch"
+     },
+     "tags": [
+     "privacy"
+     ]
+ },
+ {
+     "short_id": "ca7na4",
+     "short_id_url": "https:\/\/lobste.rs\/s\/ca7na4",
+     "created_at": "2018-06-11T22:29:31.000-05:00",
+     "title": "2ine: 16-bit .exe support!",
+     "url": "https:\/\/www.patreon.com\/posts\/2ine-16-bit-exe-19337541",
+     "score": 2,
+     "upvotes": 2,
+     "downvotes": 0,
+     "comment_count": 0,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/ca7na4\/2ine_16_bit_exe_support",
+     "submitter_user": {
+         "username": "calvin",
+         "created_at": "2014-07-01T06:47:13.000-05:00",
+         "is_admin": false,
+         "about": "Soon we will all have special names... names designed to make the cathode ray tube resonate.\r\n\r\nFediverse: [@calvin@cronk.stenoweb.net](https:\/\/cronk.stenoweb.net\/@calvin)\r\n\r\nXMPP: calvin [at] snacki.ca",
+         "is_moderator": false,
+         "karma": 28366,
+         "avatar_url": "\/avatars\/calvin-100.png",
+         "invited_by_user": "nbyouri",
+         "github_username": "NattyNarwhal"
+     },
+     "tags": [
+     "reversing"
+     ]
+ },
+ {
+     "short_id": "n4xctk",
+     "short_id_url": "https:\/\/lobste.rs\/s\/n4xctk",
+     "created_at": "2018-06-11T17:14:01.000-05:00",
+     "title": "PCB 90 degree angles",
+     "url": "https:\/\/electronics.stackexchange.com\/questions\/226582\/pcb-90-degree-angles#226693",
+     "score": 4,
+     "upvotes": 4,
+     "downvotes": 0,
+     "comment_count": 0,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/n4xctk\/pcb_90_degree_angles",
+     "submitter_user": {
+         "username": "friendlysock",
+         "created_at": "2014-02-20T00:43:41.000-06:00",
+         "is_admin": false,
+         "about": "*Literally* full of ants.\r\n\r\nFriendly engineer and human being.\r\n\r\nStrong opinions held weakly, sometimes weekly.\r\n\r\nHit me up at \"ch\" plus \"ris\" (at) \"k\" plus \"e\" plus \"dagital\" dot com.\r\n\r\n> Gentrification is the process by which nebulous threats are pacified and alchemised into money. \r\n",
+         "is_moderator": false,
+         "karma": 16398,
+         "avatar_url": "\/avatars\/friendlysock-100.png",
+         "invited_by_user": "MasonJar"
+     },
+     "tags": [
+     "hardware",
+     "practices"
+     ]
+ },
+ {
+     "short_id": "d7lxsp",
+     "short_id_url": "https:\/\/lobste.rs\/s\/d7lxsp",
+     "created_at": "2018-06-11T08:44:56.000-05:00",
+     "title": "Introduction to fountain codes: LT Codes with Python",
+     "url": "https:\/\/franpapers.com\/en\/algorithmic\/2018-introduction-to-fountain-codes-lt-codes-with-python\/",
+     "score": 8,
+     "upvotes": 8,
+     "downvotes": 0,
+     "comment_count": 1,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/d7lxsp\/introduction_fountain_codes_lt_codes",
+     "submitter_user": {
+         "username": "jdarnold",
+         "created_at": "2017-03-20T15:55:46.000-05:00",
+         "is_admin": false,
+         "about": "Liberal computer geek, hockey nut (and goalie), web 2.0 fanatic, dad of 2 and husband of 1.",
+         "is_moderator": false,
+         "karma": 149,
+         "avatar_url": "\/avatars\/jdarnold-100.png",
+         "invited_by_user": "ldmosquera",
+         "github_username": "jdarnold",
+         "twitter_username": "hieronymus"
+     },
+     "tags": [
+     "compsci",
+     "python"
+     ]
+ },
+ {
+     "short_id": "rzgenz",
+     "short_id_url": "https:\/\/lobste.rs\/s\/rzgenz",
+     "created_at": "2018-06-11T11:49:08.000-05:00",
+     "title": "Generating Test Fixtures with Wireshark",
+     "url": "http:\/\/www.petecorey.com\/blog\/2018\/06\/11\/generating-test-fixtures-with-wireshark\/",
+     "score": 3,
+     "upvotes": 3,
+     "downvotes": 0,
+     "comment_count": 0,
+     "description": "",
+     "comments_url": "https:\/\/lobste.rs\/s\/rzgenz\/generating_test_fixtures_with_wireshark",
+     "submitter_user": {
+         "username": "petecorey",
+         "created_at": "2018-03-19T13:01:29.000-05:00",
+         "is_admin": false,
+         "about": "www.petecorey.com",
+         "is_moderator": false,
+         "karma": 74,
+         "avatar_url": "\/avatars\/petecorey-100.png",
+         "invited_by_user": "gamache"
+     },
+     "tags": [
+     "cryptocurrencies",
+     "elixir"
+     ]
+ }
+ ]
