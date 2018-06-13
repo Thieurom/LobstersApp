@@ -44,11 +44,12 @@ class StoriesViewController: UIViewController {
         
         initViews()
         setUpViews()
+        loadStories()
     }
     
     // MARK: - Private helpers
     
-    func initViews() {
+    private func initViews() {
         view.addSubview(collectionView)
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,11 +61,29 @@ class StoriesViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
     }
     
-    func setUpViews() {
+    private func setUpViews() {
         collectionView.register(StoryViewCell.self, forCellWithReuseIdentifier: "StoryViewCell")
         
         storiesDataSource = StoriesDataSource()
         collectionView.dataSource = storiesDataSource
         collectionView.delegate = storiesDataSource
+    }
+    
+    private func loadStories() {
+        storiesLoader.storiesForNextPage { [weak self] (result) in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                switch result {
+                case let .success(stories):
+                    strongSelf.storiesDataSource.setStories(stories)
+                    strongSelf.collectionView.reloadData()
+                case .failure:
+                    print("Error loading stories.")
+                }
+            }
+        }
     }
 }

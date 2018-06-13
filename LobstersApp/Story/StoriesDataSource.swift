@@ -35,6 +35,10 @@ class StoriesDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
             fatalError()
         }
         
+        let story = stories[indexPath.item]
+        let storyViewModel = StoryViewModel(story: story)
+        cell.viewModel = storyViewModel
+        
         return cell
     }
 }
