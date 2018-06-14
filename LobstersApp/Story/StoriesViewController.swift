@@ -14,6 +14,7 @@ class StoriesViewController: UIViewController {
     
     private let storiesLoader: StoriesLoader
     private var storiesDataSource: StoriesDataSource!
+    private var isFirstLoad = true
     
     // MARK: - Views
     
@@ -32,6 +33,12 @@ class StoriesViewController: UIViewController {
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         
         return indicator
+    }()
+    
+    private lazy var refreshControl: UIRefreshControl = {
+        let control = UIRefreshControl()
+        
+        return control
     }()
     
     // MARK: - Initializer
@@ -92,10 +99,15 @@ class StoriesViewController: UIViewController {
         storiesDataSource = StoriesDataSource()
         collectionView.dataSource = storiesDataSource
         collectionView.delegate = storiesDataSource
+        
+        collectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(StoriesViewController.refreshControlChangedValue), for: .valueChanged)
     }
     
     private func loadStories() {
-        loadingIndicator.startAnimating()
+        if isFirstLoad {
+            loadingIndicator.startAnimating()
+        }
         
         storiesLoader.storiesForNextPage { [weak self] (result) in
             DispatchQueue.main.async {
@@ -104,6 +116,7 @@ class StoriesViewController: UIViewController {
                 }
                 
                 strongSelf.loadingIndicator.stopAnimating()
+                strongSelf.refreshControl.endRefreshing()
                 
                 switch result {
                 case let .success(stories):
@@ -114,5 +127,10 @@ class StoriesViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @objc private func refreshControlChangedValue() {
+        storiesLoader.resetToFirstPage()
+        loadStories()
     }
 }
