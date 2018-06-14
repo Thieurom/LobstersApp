@@ -18,11 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.backgroundColor = .white
         
         let storiesLoader = StoriesLoader(lobstersService: LobstersService())
-        
         let navigationController = UINavigationController(rootViewController: StoriesViewController(storiesLoader: storiesLoader))
         
         window!.rootViewController = navigationController
         window!.makeKeyAndVisible()
+        
+        // stylize navigation bar
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().barTintColor = .white
         
         return true
     }

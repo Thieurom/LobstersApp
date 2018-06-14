@@ -15,6 +15,7 @@
 		D80F904320D168D500F3D392 /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F904220D168D500F3D392 /* StoryViewModel.swift */; };
 		D80F904520D16AD500F3D392 /* Date+TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F904420D16AD500F3D392 /* Date+TimeAgo.swift */; };
 		D80F904720D16E6700F3D392 /* StoryViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F904620D16E6700F3D392 /* StoryViewCellTests.swift */; };
+		D80F904920D251D500F3D392 /* UIColor+Palettes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F904820D251D500F3D392 /* UIColor+Palettes.swift */; };
 		D868C1B220CFC67400D9421D /* URL+AppendingQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = D868C1B120CFC67400D9421D /* URL+AppendingQueries.swift */; };
 		D8A7870120CECB33007D505D /* AppLaunchingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7870020CECB33007D505D /* AppLaunchingTests.swift */; };
 		D8A7870320CECDB9007D505D /* StoriesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A7870220CECDB9007D505D /* StoriesViewControllerTests.swift */; };
@@ -53,6 +54,7 @@
 		D80F904220D168D500F3D392 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
 		D80F904420D16AD500F3D392 /* Date+TimeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+TimeAgo.swift"; sourceTree = "<group>"; };
 		D80F904620D16E6700F3D392 /* StoryViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewCellTests.swift; sourceTree = "<group>"; };
+		D80F904820D251D500F3D392 /* UIColor+Palettes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Palettes.swift"; sourceTree = "<group>"; };
 		D868C1B120CFC67400D9421D /* URL+AppendingQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+AppendingQueries.swift"; sourceTree = "<group>"; };
 		D8A7870020CECB33007D505D /* AppLaunchingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchingTests.swift; sourceTree = "<group>"; };
 		D8A7870220CECDB9007D505D /* StoriesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewControllerTests.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		D80F903720CFC81B00F3D392 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D80F904820D251D500F3D392 /* UIColor+Palettes.swift */,
 				D868C1B120CFC67400D9421D /* URL+AppendingQueries.swift */,
 				D80F903520CFC78100F3D392 /* URLRequest+JSONRequest.swift */,
 				D80F903C20D0EFA400F3D392 /* DateFormatter+ISO8601Full.swift */,
@@ -340,6 +343,7 @@
 				D868C1B220CFC67400D9421D /* URL+AppendingQueries.swift in Sources */,
 				D80F904320D168D500F3D392 /* StoryViewModel.swift in Sources */,
 				D8A7870520CECE94007D505D /* StoriesDataSource.swift in Sources */,
+				D80F904920D251D500F3D392 /* UIColor+Palettes.swift in Sources */,
 				D80F904520D16AD500F3D392 /* Date+TimeAgo.swift in Sources */,
 				D8A7871120CFBB2F007D505D /* LobstersService.swift in Sources */,
 			);

@@ -65,6 +65,7 @@ class StoriesDataSourceTests: XCTestCase {
     func testCellForItemDequeueFromCollectionView() {
         let mockCollectionView = MockCollectionView.mockCollectionView()
         mockCollectionView.dataSource = sut
+        mockCollectionView.delegate = sut
         
         sut.setStories([story])
         mockCollectionView.reloadData()

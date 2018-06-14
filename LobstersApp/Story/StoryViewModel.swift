@@ -27,7 +27,7 @@ struct StoryViewModel {
                 self.urlString = host
             }
         } else {
-            self.urlString = "ask"
+            self.urlString = "⭑ask⭑"
         }
         
         self.username = story.submitter.name

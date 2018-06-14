@@ -20,10 +20,18 @@ class StoriesViewController: UIViewController {
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 0
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
         
         return collectionView
+    }()
+    
+    private lazy var loadingIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        
+        return indicator
     }()
     
     // MARK: - Initializer
@@ -50,15 +58,32 @@ class StoriesViewController: UIViewController {
     // MARK: - Private helpers
     
     private func initViews() {
+        // navigation item
+        let titleLabel = UILabel()
+        
+        titleLabel.textColor = .bokaraGray
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont(name: "AvenirNext-Heavy", size: 24)
+        titleLabel.text = "Lobste.rs".uppercased()
+        navigationItem.titleView = titleLabel
+        
+        // add views
         view.addSubview(collectionView)
+        view.addSubview(loadingIndicator)
         
+        // constraint views
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
+        
+        NSLayoutConstraint.activate([
+            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)])
     }
     
     private func setUpViews() {
@@ -70,11 +95,15 @@ class StoriesViewController: UIViewController {
     }
     
     private func loadStories() {
+        loadingIndicator.startAnimating()
+        
         storiesLoader.storiesForNextPage { [weak self] (result) in
             DispatchQueue.main.async {
                 guard let strongSelf = self else {
                     return
                 }
+                
+                strongSelf.loadingIndicator.stopAnimating()
                 
                 switch result {
                 case let .success(stories):

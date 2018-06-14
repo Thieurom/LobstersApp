@@ -23,9 +23,16 @@ class StoryViewCellTests: XCTestCase {
         homeViewController.loadViewIfNeeded()
         
         let collectionView = homeViewController.collectionView
-        let fakeStoriesDataSource = FakeStoriesDataSource()
-        collectionView.dataSource = fakeStoriesDataSource
-        collectionView.delegate = fakeStoriesDataSource
+        
+        let storiesDataSource = StoriesDataSource()
+        collectionView.dataSource = storiesDataSource
+        collectionView.delegate = storiesDataSource
+        
+        let user = User(name: "Foo")
+        date = Date()
+        let url = URL(string: "http://www.example.com")!
+        let story = Story(id: "", title: "Bar", sourceURL: url, creationDate: date, submitter: user, commentCount: 1)
+        storiesDataSource.setStories([story])
         collectionView.reloadData()
         collectionView.layoutIfNeeded()
         
@@ -34,11 +41,6 @@ class StoryViewCellTests: XCTestCase {
         }
         
         cell = storyViewCell
-        
-        let user = User(name: "Foo")
-        date = Date()
-        let url = URL(string: "http://www.example.com")!
-        let story = Story(id: "", title: "Bar", sourceURL: url, creationDate: date, submitter: user, commentCount: 1)
         storyViewModel = StoryViewModel(story: story)
     }
     
@@ -73,7 +75,7 @@ class StoryViewCellTests: XCTestCase {
     func testSetStoryViewModelSetURLLabel() {
         cell.viewModel = storyViewModel
         
-        XCTAssertEqual(cell.urlLabel.text, "example.com")
+        XCTAssertEqual(cell.urlLabel.text?.lowercased(), "example.com")
     }
     
     func testSetStoryViewModelSetTitleLabel() {
@@ -115,23 +117,6 @@ extension StoryViewCellTests {
         
         override func storiesForNextPage(completion: @escaping (StoriesResult) -> Void) {
             completion(.success([]))
-        }
-    }
-    
-    // MARK: - Fake Stories Data Source
-    
-    class FakeStoriesDataSource: StoriesDataSource {
-        
-        override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return 1
-        }
-        
-        override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryViewCell", for: indexPath) as? StoryViewCell else {
-                fatalError()
-            }
-            
-            return cell
         }
     }
 }

@@ -8,11 +8,12 @@
 
 import UIKit
 
-class StoriesDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
+class StoriesDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Property
     
     private var stories = [Story]()
+    private let sizingCell = StoryViewCell()
     
     // MARK: - Public methods
     
@@ -40,5 +41,25 @@ class StoriesDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
         cell.viewModel = storyViewModel
         
         return cell
+    }
+    
+    // MARK: - UICollectionView Delegate Flow Layout
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.size.width
+        sizingCell.contentView.frame.size.width = width
+
+        let story = stories[indexPath.item]
+        let storyViewModel = StoryViewModel(story: story)
+        sizingCell.viewModel = storyViewModel
+
+        sizingCell.contentView.setNeedsLayout()
+        sizingCell.contentView.layoutIfNeeded()
+
+        let height = sizingCell.contentView.systemLayoutSizeFitting(CGSize(width: width, height: UILayoutFittingCompressedSize.height)).height
+
+        sizingCell.prepareForReuse()
+        
+        return CGSize(width: width, height: height)
     }
 }
