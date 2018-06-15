@@ -12,6 +12,7 @@ import XCTest
 class StoriesDataSourceTests: XCTestCase {
     
     var sut: StoriesDataSource!
+    var storiesProvider: StoriesProvider!
     var collectionView: UICollectionView!
     var controller: StoriesViewController!
     var story: Story!
@@ -20,9 +21,11 @@ class StoriesDataSourceTests: XCTestCase {
         super.setUp()
         
         sut = StoriesDataSource()
+        storiesProvider = StoriesProvider()
+        sut.storiesProvider = storiesProvider
         
         let storiesLoader = StoriesLoader(lobstersService: LobstersService())
-        controller = StoriesViewController(storiesLoader: storiesLoader)
+        controller = StoriesViewController(storiesProvider: storiesProvider, storiesLoader: storiesLoader)
         controller.loadViewIfNeeded()
         
         collectionView = controller.collectionView
@@ -34,8 +37,6 @@ class StoriesDataSourceTests: XCTestCase {
     }
     
     override func tearDown() {
-        sut.setStories([])
-        
         super.tearDown()
     }
     
@@ -46,14 +47,15 @@ class StoriesDataSourceTests: XCTestCase {
     func testNumbewOfItems() {
         XCTAssertEqual(collectionView.numberOfItems(inSection: 0), 0)
         
-        sut.setStories([story])
+        storiesProvider.set(stories: [story])
         collectionView.reloadData()
         
         XCTAssertEqual(collectionView.numberOfItems(inSection: 0), 1)
     }
     
     func testCellForItemReturnStoryViewCell() {
-        sut.setStories([story])
+        storiesProvider.set(stories: [story])
+
         collectionView.reloadData()
         collectionView.layoutIfNeeded()
         
@@ -67,7 +69,8 @@ class StoriesDataSourceTests: XCTestCase {
         mockCollectionView.dataSource = sut
         mockCollectionView.delegate = sut
         
-        sut.setStories([story])
+        storiesProvider.set(stories: [story])
+
         mockCollectionView.reloadData()
         mockCollectionView.layoutIfNeeded()
         
@@ -77,7 +80,8 @@ class StoriesDataSourceTests: XCTestCase {
     }
     
     func testCellForItemSetViewModelToCell() {
-        sut.setStories([story])
+        storiesProvider.set(stories: [story])
+
         collectionView.reloadData()
         collectionView.layoutIfNeeded()
         
@@ -94,7 +98,8 @@ class StoriesDataSourceTests: XCTestCase {
         let mockStoryDelegate = MockStoryDelegate()
         sut.storyDelegate = mockStoryDelegate
         
-        sut.setStories([story])
+        storiesProvider.set(stories: [story])
+
         collectionView.reloadData()
         collectionView.layoutIfNeeded()
         

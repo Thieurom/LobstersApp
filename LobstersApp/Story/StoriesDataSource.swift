@@ -12,45 +12,36 @@ protocol StoriesDataSourceStoryDelegate: AnyObject {
     func willDisplayLastStory()
 }
 
+protocol CollectionViewDataProvider {
+    func numberOfSections() -> Int
+    func numberOfItemsInSection(_ section: Int) -> Int
+    func item(at indexPath: IndexPath) -> Story?
+}
+
 class StoriesDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Property
     
-    private var stories = [Story]()
+    var storiesProvider: StoriesProvider?
     private let sizingCell = StoryViewCell()
-    
     weak var storyDelegate: StoriesDataSourceStoryDelegate?
-    
-    // MARK: - Public methods
-    
-    func setStories(_ stories: [Story]) {
-        self.stories = stories
-    }
-    
-    func appendStories(_ stories: [Story]) {
-        self.stories.append(contentsOf: stories)
-    }
-    
-    func indexForStory(_ story: Story) -> Int? {
-        for (index, storedStory) in stories.enumerated() {
-            guard storedStory.id == story.id else {
-                continue
-            }
-            
-            return index
-        }
-        
-        return nil
-    }
     
     // MARK: - UICollectionView Data Source
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        guard let storiesProvider = storiesProvider else {
+            return 0
+        }
+        
+        return storiesProvider.numberOfSections()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return stories.count
+        guard let storiesProvider = storiesProvider else {
+            return 0
+        }
+        
+        return storiesProvider.numberOfItemsInSection(section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -58,15 +49,21 @@ class StoriesDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
             fatalError()
         }
         
-        let story = stories[indexPath.item]
-        let storyViewModel = StoryViewModel(story: story)
-        cell.viewModel = storyViewModel
+//        let story = stories[indexPath.item]
+        if let story = storiesProvider?.item(at: indexPath) {
+            let storyViewModel = StoryViewModel(story: story)
+            cell.viewModel = storyViewModel
+        }
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item == stories.count - 1 {
+        guard let storiesProvider = storiesProvider else {
+            return
+        }
+        
+        if storiesProvider.isLastItem(at: indexPath) {
             storyDelegate?.willDisplayLastStory()
         }
     }
@@ -74,10 +71,14 @@ class StoriesDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
     // MARK: - UICollectionView Delegate Flow Layout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let story = storiesProvider?.item(at: indexPath) else {
+            return CGSize.zero
+        }
+        
         let width = collectionView.frame.size.width
         sizingCell.contentView.frame.size.width = width
 
-        let story = stories[indexPath.item]
+//        let story = stories[indexPath.item]
         let storyViewModel = StoryViewModel(story: story)
         sizingCell.viewModel = storyViewModel
 

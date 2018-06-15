@@ -17,8 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = window ?? UIWindow()
         window!.backgroundColor = .white
         
+        let storiesProvider = StoriesProvider()
         let storiesLoader = StoriesLoader(lobstersService: LobstersService())
-        let navigationController = UINavigationController(rootViewController: StoriesViewController(storiesLoader: storiesLoader))
+        let storiesViewController = StoriesViewController(storiesProvider: storiesProvider, storiesLoader: storiesLoader)
+        let navigationController = UINavigationController(rootViewController: storiesViewController)
         
         window!.rootViewController = navigationController
         window!.makeKeyAndVisible()

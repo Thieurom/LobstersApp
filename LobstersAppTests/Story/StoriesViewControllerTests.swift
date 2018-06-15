@@ -16,9 +16,10 @@ class StoriesViewControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
+        let storiesProvider = StoriesProvider()
         let storiesLoader = StoriesLoader(lobstersService: LobstersService())
         
-        sut = StoriesViewController(storiesLoader: storiesLoader)
+        sut = StoriesViewController(storiesProvider: storiesProvider, storiesLoader: storiesLoader)
         sut.loadViewIfNeeded()
     }
     

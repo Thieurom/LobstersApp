@@ -18,13 +18,15 @@ class StoryViewCellTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
+        let storiesProvider = StoriesProvider()
         let fakeStoriesLoader = FakeStoriesLoader()
-        let homeViewController = StoriesViewController(storiesLoader: fakeStoriesLoader)
+        let homeViewController = StoriesViewController(storiesProvider: storiesProvider, storiesLoader: fakeStoriesLoader)
         homeViewController.loadViewIfNeeded()
         
-        let collectionView = homeViewController.collectionView
-        
         let storiesDataSource = StoriesDataSource()
+        storiesDataSource.storiesProvider = storiesProvider
+        
+        let collectionView = homeViewController.collectionView
         collectionView.dataSource = storiesDataSource
         collectionView.delegate = storiesDataSource
         
@@ -32,7 +34,8 @@ class StoryViewCellTests: XCTestCase {
         date = Date()
         let url = URL(string: "http://www.example.com")!
         let story = Story(id: "", title: "Bar", sourceURL: url, creationDate: date, submitter: user, commentCount: 1)
-        storiesDataSource.setStories([story])
+        storiesProvider.set(stories: [story])
+        
         collectionView.reloadData()
         collectionView.layoutIfNeeded()
         

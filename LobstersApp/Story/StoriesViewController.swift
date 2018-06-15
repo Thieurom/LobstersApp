@@ -12,8 +12,10 @@ class StoriesViewController: UIViewController {
     
     // MARK: - Data
     
+    private let storiesProvider: StoriesProvider
     private let storiesLoader: StoriesLoader
     private var storiesDataSource: StoriesDataSource!
+    
     private var isFirstLoad = true
     private var isLoadingNext = false
     
@@ -44,7 +46,8 @@ class StoriesViewController: UIViewController {
     
     // MARK: - Initializer
     
-    init(storiesLoader: StoriesLoader) {
+    init(storiesProvider: StoriesProvider, storiesLoader: StoriesLoader) {
+        self.storiesProvider = storiesProvider
         self.storiesLoader = storiesLoader
         super.init(nibName: nil, bundle: nil)
     }
@@ -98,6 +101,8 @@ class StoriesViewController: UIViewController {
         collectionView.register(StoryViewCell.self, forCellWithReuseIdentifier: "StoryViewCell")
         
         storiesDataSource = StoriesDataSource()
+        storiesDataSource.storiesProvider = storiesProvider
+        
         storiesDataSource.storyDelegate = self
         collectionView.dataSource = storiesDataSource
         collectionView.delegate = storiesDataSource
@@ -122,7 +127,8 @@ class StoriesViewController: UIViewController {
                 
                 switch result {
                 case let .success(stories):
-                    strongSelf.storiesDataSource.setStories(stories)
+//                    strongSelf.storiesDataSource.setStories(stories)
+                    strongSelf.storiesProvider.set(stories: stories)
                     strongSelf.collectionView.reloadData()
                 case .failure:
                     print("Error loading stories.")
@@ -146,10 +152,10 @@ class StoriesViewController: UIViewController {
                 
                 switch result {
                 case let .success(stories):
-                    strongSelf.storiesDataSource.appendStories(stories)
+                    strongSelf.storiesProvider.append(stories: stories)
                     
                     strongSelf.collectionView.performBatchUpdates({
-                        let insertedIndexPaths = stories.compactMap { strongSelf.storiesDataSource.indexForStory($0) }
+                        let insertedIndexPaths = stories.compactMap { strongSelf.storiesProvider.index(of: $0) }
                             .map { IndexPath(item: $0, section: 0) }
                         
                         strongSelf.collectionView.insertItems(at: insertedIndexPaths)
