@@ -89,6 +89,24 @@ class StoriesDataSourceTests: XCTestCase {
         XCTAssertNotNil(cell.viewModel)
         XCTAssertEqual(cell.viewModel?.story.title, "Bar")
     }
+    
+    func testCellWillDisplayCallDelegateMethod() {
+        let mockStoryDelegate = MockStoryDelegate()
+        sut.storyDelegate = mockStoryDelegate
+        
+        sut.setStories([story])
+        collectionView.reloadData()
+        collectionView.layoutIfNeeded()
+        
+        guard let cell = collectionView.cellForItem(at: IndexPath(item: 0, section: 0)) as? StoryViewCell else {
+            XCTFail("Fail to dequeue correct cell")
+            return
+        }
+        
+        collectionView.delegate?.collectionView!(collectionView, willDisplay: cell, forItemAt: IndexPath(item: 0, section: 0))
+        
+        XCTAssertTrue(mockStoryDelegate.calledWillDisplayLastStory)
+    }
 }
 
 // MARK: -
@@ -114,6 +132,17 @@ extension StoriesDataSourceTests {
             cellGotDequeued = true
             
             return super.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+        }
+    }
+    
+    // MARK: -
+    
+    class MockStoryDelegate: StoriesDataSourceStoryDelegate {
+        
+        var calledWillDisplayLastStory = false
+        
+        func willDisplayLastStory() {
+            calledWillDisplayLastStory = true
         }
     }
 }

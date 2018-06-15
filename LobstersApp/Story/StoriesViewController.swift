@@ -15,6 +15,7 @@ class StoriesViewController: UIViewController {
     private let storiesLoader: StoriesLoader
     private var storiesDataSource: StoriesDataSource!
     private var isFirstLoad = true
+    private var isLoadingNext = false
     
     // MARK: - Views
     
@@ -97,6 +98,7 @@ class StoriesViewController: UIViewController {
         collectionView.register(StoryViewCell.self, forCellWithReuseIdentifier: "StoryViewCell")
         
         storiesDataSource = StoriesDataSource()
+        storiesDataSource.storyDelegate = self
         collectionView.dataSource = storiesDataSource
         collectionView.delegate = storiesDataSource
         
@@ -129,8 +131,49 @@ class StoriesViewController: UIViewController {
         }
     }
     
+    private func loadNextStories() {
+        guard !isLoadingNext else {
+            return
+        }
+        
+        isLoadingNext = true
+        
+        storiesLoader.storiesForNextPage { [weak self] (result) in
+            DispatchQueue.main.async {
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                switch result {
+                case let .success(stories):
+                    strongSelf.storiesDataSource.appendStories(stories)
+                    
+                    strongSelf.collectionView.performBatchUpdates({
+                        let insertedIndexPaths = stories.compactMap { strongSelf.storiesDataSource.indexForStory($0) }
+                            .map { IndexPath(item: $0, section: 0) }
+                        
+                        strongSelf.collectionView.insertItems(at: insertedIndexPaths)
+                    }, completion: { (_) in
+                        strongSelf.isLoadingNext = false
+                    })
+                case .failure:
+                    print("Error loading stories.")
+                }
+            }
+        }
+    }
+    
     @objc private func refreshControlChangedValue() {
         storiesLoader.resetToFirstPage()
         loadStories()
+    }
+}
+
+// MARK: - StoriesDataSource Story Delegate
+
+extension StoriesViewController: StoriesDataSourceStoryDelegate {
+    
+    func willDisplayLastStory() {
+        loadNextStories()
     }
 }

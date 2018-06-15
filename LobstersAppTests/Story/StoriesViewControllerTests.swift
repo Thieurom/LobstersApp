@@ -43,4 +43,13 @@ class StoriesViewControllerTests: XCTestCase {
     func testCollectionViewDataSourceEqualDelegate() {
         XCTAssertEqual(sut.collectionView.dataSource as? StoriesDataSource, sut.collectionView.delegate as? StoriesDataSource)
     }
+    
+    func testSetStoryDelegate() {
+        guard let storiesDataSource = sut.collectionView.dataSource as? StoriesDataSource else {
+            XCTFail("DataSource should be an instance of StoriesDataSource")
+            return
+        }
+        
+        XCTAssertTrue(storiesDataSource.storyDelegate is StoriesViewController)
+    }
 }

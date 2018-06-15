@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol StoriesDataSourceStoryDelegate: AnyObject {
+    func willDisplayLastStory()
+}
+
 class StoriesDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Property
@@ -15,10 +19,28 @@ class StoriesDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
     private var stories = [Story]()
     private let sizingCell = StoryViewCell()
     
+    weak var storyDelegate: StoriesDataSourceStoryDelegate?
+    
     // MARK: - Public methods
     
     func setStories(_ stories: [Story]) {
         self.stories = stories
+    }
+    
+    func appendStories(_ stories: [Story]) {
+        self.stories.append(contentsOf: stories)
+    }
+    
+    func indexForStory(_ story: Story) -> Int? {
+        for (index, storedStory) in stories.enumerated() {
+            guard storedStory.id == story.id else {
+                continue
+            }
+            
+            return index
+        }
+        
+        return nil
     }
     
     // MARK: - UICollectionView Data Source
@@ -41,6 +63,12 @@ class StoriesDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
         cell.viewModel = storyViewModel
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.item == stories.count - 1 {
+            storyDelegate?.willDisplayLastStory()
+        }
     }
     
     // MARK: - UICollectionView Delegate Flow Layout
