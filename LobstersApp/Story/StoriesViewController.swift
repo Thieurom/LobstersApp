@@ -173,6 +173,11 @@ class StoriesViewController: UIViewController {
         storiesLoader.resetToFirstPage()
         loadStories()
     }
+    
+    private func showStoryViewController(with story: Story) {
+        let storyViewController = StoryViewController(story: story)
+        navigationController?.pushViewController(storyViewController, animated: true)
+    }
 }
 
 // MARK: - StoriesDataSource Story Delegate
@@ -181,5 +186,13 @@ extension StoriesViewController: StoriesDataSourceStoryDelegate {
     
     func willDisplayLastStory() {
         loadNextStories()
+    }
+    
+    func didSelectStory(_ story: Story) {
+        guard story.sourceURL != nil else {
+            return
+        }
+        
+        showStoryViewController(with: story)
     }
 }

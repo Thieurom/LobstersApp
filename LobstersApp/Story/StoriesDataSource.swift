@@ -10,6 +10,7 @@ import UIKit
 
 protocol StoriesDataSourceStoryDelegate: AnyObject {
     func willDisplayLastStory()
+    func didSelectStory(_ story: Story)
 }
 
 protocol CollectionViewDataProvider {
@@ -65,6 +66,12 @@ class StoriesDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
         
         if storiesProvider.isLastItem(at: indexPath) {
             storyDelegate?.willDisplayLastStory()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let story = storiesProvider?.item(at: indexPath) {
+            storyDelegate?.didSelectStory(story)
         }
     }
     

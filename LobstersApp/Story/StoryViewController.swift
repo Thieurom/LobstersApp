@@ -13,7 +13,7 @@ class StoryViewController: UIViewController, WKNavigationDelegate {
     
     // MARK: - Data
     
-    private let story: Story
+    let story: Story
     
     // MARK: - Views
     lazy var webView: WKWebView = {

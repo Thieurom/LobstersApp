@@ -33,7 +33,7 @@ class StoriesDataSourceTests: XCTestCase {
         collectionView.delegate = sut
         
         let user = User(name: "Foo")
-        story = Story(id: "", title: "Bar", sourceURL: nil, creationDate: Date(), submitter: user, commentCount: 0)
+        story = Story(id: "1234", title: "Bar", sourceURL: nil, creationDate: Date(), submitter: user, commentCount: 0)
     }
     
     override func tearDown() {
@@ -112,6 +112,21 @@ class StoriesDataSourceTests: XCTestCase {
         
         XCTAssertTrue(mockStoryDelegate.calledWillDisplayLastStory)
     }
+    
+    func testSelectCell() {
+        let mockStoryDelegate = MockStoryDelegate()
+        sut.storyDelegate = mockStoryDelegate
+        
+        storiesProvider.set(stories: [story])
+        
+        collectionView.reloadData()
+        collectionView.layoutIfNeeded()
+        
+        collectionView.delegate?.collectionView!(collectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
+        
+        XCTAssertEqual(mockStoryDelegate.selectedStory?.id, "1234")
+        XCTAssertEqual(mockStoryDelegate.selectedStory?.title, "Bar")
+    }
 }
 
 // MARK: -
@@ -140,14 +155,19 @@ extension StoriesDataSourceTests {
         }
     }
     
-    // MARK: -
+    // MARK: - StoriesDataSource Story Delegate
     
     class MockStoryDelegate: StoriesDataSourceStoryDelegate {
         
+        var selectedStory: Story?
         var calledWillDisplayLastStory = false
         
         func willDisplayLastStory() {
             calledWillDisplayLastStory = true
+        }
+        
+        func didSelectStory(_ story: Story) {
+            selectedStory = story
         }
     }
 }

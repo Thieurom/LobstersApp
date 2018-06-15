@@ -12,11 +12,12 @@ import XCTest
 class StoriesViewControllerTests: XCTestCase {
     
     var sut: StoriesViewController!
+    var storiesProvider: StoriesProvider!
     
     override func setUp() {
         super.setUp()
         
-        let storiesProvider = StoriesProvider()
+        storiesProvider = StoriesProvider()
         let storiesLoader = StoriesLoader(lobstersService: LobstersService())
         
         sut = StoriesViewController(storiesProvider: storiesProvider, storiesLoader: storiesLoader)
@@ -52,5 +53,46 @@ class StoriesViewControllerTests: XCTestCase {
         }
         
         XCTAssertTrue(storiesDataSource.storyDelegate is StoriesViewController)
+    }
+    
+    func testShowStoryViewControllerWhenSelectingCell() {
+        let mockNavigationController = MockNavigationController(rootViewController: sut)
+        UIApplication.shared.keyWindow?.rootViewController = mockNavigationController
+        
+        let user = User(name: "")
+        let url = URL(string: "http://www.example.com")!
+        let story = Story(id: "1234", title: "", sourceURL: url, creationDate: Date(), submitter: user, commentCount: 0)
+        storiesProvider.set(stories: [story])
+        
+        let collectionView = sut.collectionView
+        collectionView.reloadData()
+        
+        collectionView.delegate?.collectionView!(collectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
+        
+        guard let storyViewController = mockNavigationController.lastPushedViewController as? StoryViewController else {
+            XCTFail("An instance of StoryViewController should be pushed to stack")
+            return
+        }
+        
+        XCTAssertEqual(storyViewController.story.id, "1234")
+        XCTAssertEqual(storyViewController.story.sourceURL, url)
+    }
+}
+
+// MARK: -
+
+extension StoriesViewControllerTests {
+    
+    // MARK: - Mock UINavigationController
+    
+    class MockNavigationController: UINavigationController {
+        
+        var lastPushedViewController: UIViewController?
+        
+        override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+            lastPushedViewController = viewController
+            
+            super.pushViewController(viewController, animated: animated)
+        }
     }
 }
