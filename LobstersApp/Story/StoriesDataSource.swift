@@ -13,6 +13,11 @@ protocol StoriesDataSourceStoryDelegate: AnyObject {
     func didSelectStory(_ story: Story)
 }
 
+protocol StoriesDataSourceCellDelegate: AnyObject {
+    func storyViewCell(_ cell: StoryViewCell, didPressCommentButton button: UIButton)
+    func storyViewCell(_ cell: StoryViewCell, didPressShareButton button: UIButton)
+}
+
 protocol CollectionViewDataProvider {
     func numberOfSections() -> Int
     func numberOfItemsInSection(_ section: Int) -> Int
@@ -26,6 +31,7 @@ class StoriesDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
     var storiesProvider: StoriesProvider?
     private let sizingCell = StoryViewCell()
     weak var storyDelegate: StoriesDataSourceStoryDelegate?
+    weak var cellDelegate: StoriesDataSourceCellDelegate?
     
     // MARK: - UICollectionView Data Source
     
@@ -50,10 +56,10 @@ class StoriesDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
             fatalError()
         }
         
-//        let story = stories[indexPath.item]
         if let story = storiesProvider?.item(at: indexPath) {
             let storyViewModel = StoryViewModel(story: story)
             cell.viewModel = storyViewModel
+            cell.delegate = self
         }
         
         return cell
@@ -85,7 +91,6 @@ class StoriesDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
         let width = collectionView.frame.size.width
         sizingCell.contentView.frame.size.width = width
 
-//        let story = stories[indexPath.item]
         let storyViewModel = StoryViewModel(story: story)
         sizingCell.viewModel = storyViewModel
 
@@ -97,5 +102,18 @@ class StoriesDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
         sizingCell.prepareForReuse()
         
         return CGSize(width: width, height: height)
+    }
+}
+
+// MARK: - StoryViewCell Delegate
+
+extension StoriesDataSource: StoryViewCellDelegate {
+    
+    func storyViewCell(_ cell: StoryViewCell, didPressCommentButton button: UIButton) {
+        cellDelegate?.storyViewCell(cell, didPressCommentButton: button)
+    }
+    
+    func storyViewCell(_ cell: StoryViewCell, didPressShareButton button: UIButton) {
+        cellDelegate?.storyViewCell(cell, didPressShareButton: button)
     }
 }

@@ -135,9 +135,23 @@ class StoryViewController: UIViewController {
         
         commentButton.setTitle("\(story.commentCount)", for: .normal)
         
+        //
+        shareButton.addTarget(self, action: #selector(StoryViewController.shareButtonPressed), for: .touchUpInside)
+        
         let commentBarButtonItem = UIBarButtonItem(customView: commentButton)
         let shareBarButtonItem = UIBarButtonItem(customView: shareButton)
         toolbar.setItems([commentBarButtonItem, shareBarButtonItem], animated: false)
+    }
+    
+    @objc private func shareButtonPressed() {
+        var sharedContent = "\(story.title)"
+        if let url = story.sourceURL {
+            sharedContent += " - \(url.absoluteString)"
+        }
+        
+        let activityController = UIActivityViewController(activityItems: [sharedContent], applicationActivities: nil)
+        
+        present(activityController, animated: true, completion: nil)
     }
     
     private func loadStory(_ story: Story) {

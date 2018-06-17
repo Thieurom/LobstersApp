@@ -127,6 +127,20 @@ class StoriesDataSourceTests: XCTestCase {
         XCTAssertEqual(mockStoryDelegate.selectedStory?.id, "1234")
         XCTAssertEqual(mockStoryDelegate.selectedStory?.title, "Bar")
     }
+    
+    func testSetStoryViewCellDelegate() {
+        storiesProvider.set(stories: [story])
+        
+        collectionView.reloadData()
+        collectionView.layoutIfNeeded()
+        
+        guard let cell = collectionView.cellForItem(at: IndexPath(item: 0, section: 0)) as? StoryViewCell else {
+            XCTFail("Fail to dequeue correct cell")
+            return
+        }
+        
+        XCTAssertTrue(cell.delegate is StoriesDataSource)
+    }
 }
 
 // MARK: -

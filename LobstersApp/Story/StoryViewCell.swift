@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol StoryViewCellDelegate: AnyObject {
+    func storyViewCell(_ cell: StoryViewCell, didPressCommentButton button: UIButton)
+    func storyViewCell(_ cell: StoryViewCell, didPressShareButton button: UIButton)
+}
+
 class StoryViewCell: UICollectionViewCell {
     
     // MARK: - Data
@@ -26,6 +31,8 @@ class StoryViewCell: UICollectionViewCell {
             }
         }
     }
+    
+    weak var delegate: StoryViewCellDelegate?
     
     // MARK: - Sub views
     
@@ -128,6 +135,8 @@ class StoryViewCell: UICollectionViewCell {
         constraintLabels()
         constraintButtons()
         constraintSeparatorLineView()
+        
+        setUpButtons()
     }
     
     private func constraintLabels() {
@@ -188,5 +197,18 @@ class StoryViewCell: UICollectionViewCell {
             separatorLineView.leadingAnchor.constraint(equalTo: urlLabel.leadingAnchor),
             separatorLineView.trailingAnchor.constraint(equalTo: urlLabel.trailingAnchor),
             separatorLineView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)])
+    }
+    
+    private func setUpButtons() {
+        commentButton.addTarget(self, action: #selector(StoryViewCell.commentButtonPressed), for: .touchUpInside)
+        shareButton.addTarget(self, action: #selector(StoryViewCell.shareButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc private func commentButtonPressed() {
+        delegate?.storyViewCell(self, didPressCommentButton: commentButton)
+    }
+    
+    @objc private func shareButtonPressed() {
+        delegate?.storyViewCell(self, didPressShareButton: shareButton)
     }
 }

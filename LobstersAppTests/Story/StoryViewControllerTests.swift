@@ -53,6 +53,15 @@ class StoryViewControllerTests: XCTestCase {
         
         XCTAssertEqual(request.url, story.sourceURL)
     }
+    
+    func testPressShareButton() {
+        sut.shareButton.sendActions(for: .touchUpInside)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
+            XCTAssertNotNil(self.sut.presentedViewController)
+            XCTAssertTrue(self.sut.presentedViewController is UIActivityViewController)
+        }
+    }
 }
 
 // MARK: -

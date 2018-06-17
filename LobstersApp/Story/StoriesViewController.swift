@@ -110,6 +110,7 @@ class StoriesViewController: UIViewController {
         storiesDataSource.storiesProvider = storiesProvider
         
         storiesDataSource.storyDelegate = self
+        storiesDataSource.cellDelegate = self
         collectionView.dataSource = storiesDataSource
         collectionView.delegate = storiesDataSource
         
@@ -133,7 +134,6 @@ class StoriesViewController: UIViewController {
                 
                 switch result {
                 case let .success(stories):
-//                    strongSelf.storiesDataSource.setStories(stories)
                     strongSelf.storiesProvider.set(stories: stories)
                     strongSelf.collectionView.reloadData()
                 case .failure:
@@ -200,5 +200,30 @@ extension StoriesViewController: StoriesDataSourceStoryDelegate {
         }
         
         showStoryViewController(with: story)
+    }
+}
+
+// MARK: - StoriesDataSource Cell Delegate
+
+extension StoriesViewController: StoriesDataSourceCellDelegate {
+    
+    func storyViewCell(_ cell: StoryViewCell, didPressCommentButton button: UIButton) {
+        print("comment")
+    }
+    
+    func storyViewCell(_ cell: StoryViewCell, didPressShareButton button: UIButton) {
+        guard let indexPath = collectionView.indexPath(for: cell),
+            let story = storiesProvider.item(at: indexPath) else {
+                return
+        }
+        
+        var sharedContent = "\(story.title)"
+        if let url = story.sourceURL {
+           sharedContent += " - \(url.absoluteString)"
+        }
+        
+        let activityController = UIActivityViewController(activityItems: [sharedContent], applicationActivities: nil)
+        
+        present(activityController, animated: true, completion: nil)
     }
 }
