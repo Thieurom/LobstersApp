@@ -28,6 +28,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // stylize navigation bar
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().barTintColor = .white
+        UINavigationBar.appearance().tintColor = .bokaraGray
+        
+        // set status background color white
+        let statusBarBackgroundView = UIView()
+        statusBarBackgroundView.backgroundColor = .white
+        window!.addSubview(statusBarBackgroundView)
+        
+        statusBarBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            statusBarBackgroundView.heightAnchor.constraint(equalToConstant: 20),
+            statusBarBackgroundView.topAnchor.constraint(equalTo: window!.topAnchor),
+            statusBarBackgroundView.leadingAnchor.constraint(equalTo: window!.leadingAnchor),
+            statusBarBackgroundView.trailingAnchor.constraint(equalTo: window!.trailingAnchor)])
+        
+        // clear the title of every backBarButtonItem (remain left arrow)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: .normal)
         
         return true
     }

@@ -66,6 +66,12 @@ class StoriesViewController: UIViewController {
         loadStories()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.hidesBarsOnSwipe = false
+    }
+    
     // MARK: - Private helpers
     
     private func initViews() {
