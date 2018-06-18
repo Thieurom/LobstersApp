@@ -18,55 +18,24 @@ protocol StoriesDataSourceCellDelegate: AnyObject {
     func storyViewCell(_ cell: StoryViewCell, didPressShareButton button: UIButton)
 }
 
-protocol CollectionViewDataProvider {
-    func numberOfSections() -> Int
-    func numberOfItemsInSection(_ section: Int) -> Int
-    func item(at indexPath: IndexPath) -> Story?
-}
-
-class StoriesDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class StoriesDataSource: CollectionDataSource<StoriesProvider, StoryViewCell> {
     
-    // MARK: - Property
-    
-    var storiesProvider: StoriesProvider?
-    private let sizingCell = StoryViewCell()
     weak var storyDelegate: StoriesDataSourceStoryDelegate?
     weak var cellDelegate: StoriesDataSourceCellDelegate?
     
-    // MARK: - UICollectionView Data Source
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        guard let storiesProvider = storiesProvider else {
-            return 0
-        }
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath)
         
-        return storiesProvider.numberOfSections()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let storiesProvider = storiesProvider else {
-            return 0
-        }
-        
-        return storiesProvider.numberOfItemsInSection(section)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StoryViewCell", for: indexPath) as? StoryViewCell else {
-            fatalError()
-        }
-        
-        if let story = storiesProvider?.item(at: indexPath) {
-            let storyViewModel = StoryViewModel(story: story)
-            cell.viewModel = storyViewModel
-            cell.delegate = self
+        if let storyViewCell = cell as? StoryViewCell {
+            storyViewCell.delegate = self
+            return storyViewCell
         }
         
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let storiesProvider = storiesProvider else {
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let storiesProvider = provider else {
             return
         }
         
@@ -75,33 +44,11 @@ class StoriesDataSource: NSObject, UICollectionViewDataSource, UICollectionViewD
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let story = storiesProvider?.item(at: indexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let storyViewModel = provider?.item(at: indexPath) {
+            let story = storyViewModel.story
             storyDelegate?.didSelectStory(story)
         }
-    }
-    
-    // MARK: - UICollectionView Delegate Flow Layout
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let story = storiesProvider?.item(at: indexPath) else {
-            return CGSize.zero
-        }
-        
-        let width = collectionView.frame.size.width
-        sizingCell.contentView.frame.size.width = width
-
-        let storyViewModel = StoryViewModel(story: story)
-        sizingCell.viewModel = storyViewModel
-
-        sizingCell.contentView.setNeedsLayout()
-        sizingCell.contentView.layoutIfNeeded()
-
-        let height = sizingCell.contentView.systemLayoutSizeFitting(CGSize(width: width, height: UILayoutFittingCompressedSize.height)).height
-
-        sizingCell.prepareForReuse()
-        
-        return CGSize(width: width, height: height)
     }
 }
 

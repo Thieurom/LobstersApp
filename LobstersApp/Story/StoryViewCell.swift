@@ -13,7 +13,7 @@ protocol StoryViewCellDelegate: AnyObject {
     func storyViewCell(_ cell: StoryViewCell, didPressShareButton button: UIButton)
 }
 
-class StoryViewCell: UICollectionViewCell {
+class StoryViewCell: UICollectionViewCell, ViewModelizedCell {
     
     // MARK: - Data
     

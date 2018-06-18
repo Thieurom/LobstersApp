@@ -24,7 +24,7 @@ class StoryViewCellTests: XCTestCase {
         homeViewController.loadViewIfNeeded()
         
         let storiesDataSource = StoriesDataSource()
-        storiesDataSource.storiesProvider = storiesProvider
+        storiesDataSource.provider = storiesProvider
         
         let collectionView = homeViewController.collectionView
         collectionView.dataSource = storiesDataSource
@@ -34,7 +34,8 @@ class StoryViewCellTests: XCTestCase {
         date = Date()
         let url = URL(string: "http://www.example.com")!
         let story = Story(id: "", title: "Bar", sourceURL: url, creationDate: date, submitter: user, commentCount: 1)
-        storiesProvider.set(stories: [story])
+        storyViewModel = StoryViewModel(story: story)
+        storiesProvider.set(items: [storyViewModel])
         
         collectionView.reloadData()
         collectionView.layoutIfNeeded()

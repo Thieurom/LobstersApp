@@ -12,14 +12,15 @@ import XCTest
 class StoriesProviderTests: XCTestCase {
     
     var sut: StoriesProvider!
-    var story: Story!
+    var storyViewModel: StoryViewModel!
     
     override func setUp() {
         super.setUp()
         
         sut = StoriesProvider()
         let user = User(name: "Foo")
-        story = Story(id: "", title: "Bar", sourceURL: nil, creationDate: Date(), submitter: user, commentCount: 0)
+        let story = Story(id: "", title: "Bar", sourceURL: nil, creationDate: Date(), submitter: user, commentCount: 0)
+        storyViewModel = StoryViewModel(story: story)
     }
     
     override func tearDown() {
@@ -29,33 +30,33 @@ class StoriesProviderTests: XCTestCase {
     }
     
     func testStoriesCountInitiallyZero() {
-        XCTAssertEqual(sut.storiesCount, 0)
+        XCTAssertEqual(sut.itemsCount, 0)
     }
     
     func testSetStories() {
-        sut.set(stories: [story])
+        sut.set(items: [storyViewModel])
         
-        XCTAssertEqual(sut.storiesCount, 1)
+        XCTAssertEqual(sut.itemsCount, 1)
     }
     
     func testAppendStories() {
-        sut.append(stories: [story])
+        sut.append(items: [storyViewModel])
         
-        XCTAssertEqual(sut.storiesCount, 1)
+        XCTAssertEqual(sut.itemsCount, 1)
     }
     
     func testIndexOfStory() {
-        XCTAssertNil(sut.index(of: story))
+        XCTAssertNil(sut.index(of: storyViewModel))
         
-        sut.append(stories: [story])
+        sut.append(items: [storyViewModel])
         
-        XCTAssertEqual(sut.index(of: story), 0)
+        XCTAssertEqual(sut.index(of: storyViewModel), 0)
     }
     
     func testStoryLastItem() {
-        sut.append(stories: [story])
+        sut.append(items: [storyViewModel])
         
-        XCTAssertEqual(sut.storiesCount, 1)
+        XCTAssertEqual(sut.itemsCount, 1)
         XCTAssertTrue(sut.isLastItem(at: IndexPath(item: 0, section: 0)))
     }
 }

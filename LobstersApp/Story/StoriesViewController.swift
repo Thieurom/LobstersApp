@@ -107,7 +107,7 @@ class StoriesViewController: UIViewController {
         collectionView.register(StoryViewCell.self, forCellWithReuseIdentifier: "StoryViewCell")
         
         storiesDataSource = StoriesDataSource()
-        storiesDataSource.storiesProvider = storiesProvider
+        storiesDataSource.provider = storiesProvider
         
         storiesDataSource.storyDelegate = self
         storiesDataSource.cellDelegate = self
@@ -134,7 +134,8 @@ class StoriesViewController: UIViewController {
                 
                 switch result {
                 case let .success(stories):
-                    strongSelf.storiesProvider.set(stories: stories)
+                    let storyViewModels = stories.map { StoryViewModel(story: $0) }
+                    strongSelf.storiesProvider.set(items: storyViewModels)
                     strongSelf.collectionView.reloadData()
                 case .failure:
                     print("Error loading stories.")
@@ -158,10 +159,11 @@ class StoriesViewController: UIViewController {
                 
                 switch result {
                 case let .success(stories):
-                    strongSelf.storiesProvider.append(stories: stories)
+                    let storyViewModels = stories.map { StoryViewModel(story: $0) }
+                    strongSelf.storiesProvider.append(items: storyViewModels)
                     
                     strongSelf.collectionView.performBatchUpdates({
-                        let insertedIndexPaths = stories.compactMap { strongSelf.storiesProvider.index(of: $0) }
+                        let insertedIndexPaths = storyViewModels.compactMap { strongSelf.storiesProvider.index(of: $0) }
                             .map { IndexPath(item: $0, section: 0) }
                         
                         strongSelf.collectionView.insertItems(at: insertedIndexPaths)
@@ -213,10 +215,11 @@ extension StoriesViewController: StoriesDataSourceCellDelegate {
     
     func storyViewCell(_ cell: StoryViewCell, didPressShareButton button: UIButton) {
         guard let indexPath = collectionView.indexPath(for: cell),
-            let story = storiesProvider.item(at: indexPath) else {
+            let storyViewModel = storiesProvider.item(at: indexPath) else {
                 return
         }
         
+        let story = storyViewModel.story
         var sharedContent = "\(story.title)"
         if let url = story.sourceURL {
            sharedContent += " - \(url.absoluteString)"

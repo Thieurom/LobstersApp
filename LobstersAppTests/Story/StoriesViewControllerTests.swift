@@ -13,14 +13,15 @@ class StoriesViewControllerTests: XCTestCase {
     
     var sut: StoriesViewController!
     var storiesProvider: StoriesProvider!
-    var story: Story!
+    var storyViewModel: StoryViewModel!
     
     override func setUp() {
         super.setUp()
         
         let user = User(name: "")
         let url = URL(string: "http://www.example.com")!
-        story = Story(id: "1234", title: "", sourceURL: url, creationDate: Date(), submitter: user, commentCount: 0)
+        let story = Story(id: "1234", title: "", sourceURL: url, creationDate: Date(), submitter: user, commentCount: 0)
+        storyViewModel = StoryViewModel(story: story)
         
         storiesProvider = StoriesProvider()
         let fakeStoriesLoader = FakeStoriesLoader()
@@ -64,7 +65,7 @@ class StoriesViewControllerTests: XCTestCase {
         let mockNavigationController = MockNavigationController(rootViewController: sut)
         UIApplication.shared.keyWindow?.rootViewController = mockNavigationController
         
-        storiesProvider.set(stories: [story])
+        storiesProvider.set(items: [storyViewModel])
         
         let collectionView = sut.collectionView
         collectionView.reloadData()
@@ -90,7 +91,7 @@ class StoriesViewControllerTests: XCTestCase {
     }
 
     func testPressShareButtonOnCell() {
-        storiesProvider.set(stories: [story])
+        storiesProvider.set(items: [storyViewModel])
 
         let collectionView = sut.collectionView
         collectionView.reloadData()

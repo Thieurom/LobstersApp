@@ -8,3 +8,7 @@ trailing_whitespace:
 identifier_name:
     excluded:
         - id
+
+type_name:
+    excluded:
+        - T
