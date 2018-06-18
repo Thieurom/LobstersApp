@@ -12,20 +12,17 @@ import XCTest
 class StoriesDataSourceTests: XCTestCase {
     
     var sut: StoriesDataSource!
-    var storiesProvider: StoriesProvider!
-    var collectionView: UICollectionView!
-    var controller: StoriesViewController!
-    var storyViewModel: StoryViewModel!
+    var collectionView: UICollectionView! 
     
     override func setUp() {
         super.setUp()
         
         sut = StoriesDataSource()
-        storiesProvider = StoriesProvider()
+        let storiesProvider = StoriesProvider()
         sut.provider = storiesProvider
         
         let storiesLoader = StoriesLoader(lobstersService: LobstersService())
-        controller = StoriesViewController(storiesProvider: storiesProvider, storiesLoader: storiesLoader)
+        let controller = StoriesViewController(storiesProvider: storiesProvider, storiesLoader: storiesLoader)
         controller.loadViewIfNeeded()
         
         collectionView = controller.collectionView
@@ -34,7 +31,7 @@ class StoriesDataSourceTests: XCTestCase {
         
         let user = User(name: "Foo")
         let story = Story(id: "1234", title: "Bar", sourceURL: nil, creationDate: Date(), submitter: user, commentCount: 0)
-        storyViewModel = StoryViewModel(story: story)
+        let storyViewModel = StoryViewModel(story: story)
         
         storiesProvider.set(items: [storyViewModel])
     }
@@ -143,7 +140,7 @@ extension StoriesDataSourceTests {
             let layout = UICollectionViewFlowLayout()
             let mockCollectionView = MockCollectionView(frame: CGRect(x: 0, y: 0, width: 320, height: 480), collectionViewLayout: layout)
             
-            mockCollectionView.register(StoryViewCell.self, forCellWithReuseIdentifier: "StoryViewCell")
+            mockCollectionView.register(StoryViewCell.self, forCellWithReuseIdentifier: StoryViewCell.reuseIdentifier)
             
             return mockCollectionView
         }

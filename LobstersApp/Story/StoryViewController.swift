@@ -110,8 +110,7 @@ class StoryViewController: UIViewController {
         NSLayoutConstraint.activate([
             webView.topAnchor.constraint(equalTo: view.topAnchor),
             webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
+            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
         
         webView.navigationDelegate = self
         
@@ -129,6 +128,7 @@ class StoryViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             toolbar.heightAnchor.constraint(equalToConstant: 44),
+            toolbar.topAnchor.constraint(equalTo: webView.bottomAnchor),
             toolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             toolbar.bottomAnchor.constraint(equalTo: view.bottomAnchor)])

@@ -16,7 +16,8 @@ class CommentsViewControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        sut = CommentsViewController()
+        let commentsProvider = CommentsProvider()
+        sut = CommentsViewController(commentsProvider: commentsProvider)
         sut.loadViewIfNeeded()
     }
     
