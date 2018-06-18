@@ -10,8 +10,16 @@ import Foundation
 
 struct CommentViewModel {
     let comment: Comment
+    let username: String
+    let timestamp: String
+    let commentBody: String
+    let indentationLevel: Int
     
     init(comment: Comment) {
         self.comment = comment
+        self.username = comment.commenter.name
+        self.timestamp = comment.creationDate.timeAgo()
+        self.commentBody = comment.htmlComment
+        self.indentationLevel = comment.indentationLevel
     }
 }

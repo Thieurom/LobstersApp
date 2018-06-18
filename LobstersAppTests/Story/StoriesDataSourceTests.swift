@@ -12,7 +12,7 @@ import XCTest
 class StoriesDataSourceTests: XCTestCase {
     
     var sut: StoriesDataSource!
-    var collectionView: UICollectionView! 
+    var collectionView: UICollectionView!
     
     override func setUp() {
         super.setUp()
