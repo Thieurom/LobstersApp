@@ -136,6 +136,7 @@ class StoryViewController: UIViewController {
         commentButton.setTitle("\(story.commentCount)", for: .normal)
         
         //
+        commentButton.addTarget(self, action: #selector(StoryViewController.commentButtonPressed), for: .touchUpInside)
         shareButton.addTarget(self, action: #selector(StoryViewController.shareButtonPressed), for: .touchUpInside)
         
         let commentBarButtonItem = UIBarButtonItem(customView: commentButton)
@@ -154,6 +155,10 @@ class StoryViewController: UIViewController {
         present(activityController, animated: true, completion: nil)
     }
     
+    @objc private func commentButtonPressed() {
+        showCommentsViewController(with: story)
+    }
+    
     private func loadStory(_ story: Story) {
         guard let url = story.sourceURL else {
             return
@@ -162,6 +167,13 @@ class StoryViewController: UIViewController {
         let request = URLRequest(url: url)
         loadingIndicator.startAnimating()
         webView.load(request)
+    }
+    
+    private func showCommentsViewController(with story: Story) {
+        let commentsProvider = CommentsProvider()
+        let commentsViewController = CommentsViewController(story: story, commentsProvider: commentsProvider)
+        
+        navigationController?.pushViewController(commentsViewController, animated: true)
     }
 }
 

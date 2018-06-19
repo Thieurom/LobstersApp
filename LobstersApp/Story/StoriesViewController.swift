@@ -186,6 +186,13 @@ class StoriesViewController: UIViewController {
         let storyViewController = StoryViewController(story: story)
         navigationController?.pushViewController(storyViewController, animated: true)
     }
+    
+    private func showCommentsViewController(with story: Story) {
+        let commentsProvider = CommentsProvider()
+        let commentsViewController = CommentsViewController(story: story, commentsProvider: commentsProvider)
+        
+        navigationController?.pushViewController(commentsViewController, animated: true)
+    }
 }
 
 // MARK: - StoriesDataSource Story Delegate
@@ -197,11 +204,11 @@ extension StoriesViewController: StoriesDataSourceStoryDelegate {
     }
     
     func didSelectStory(_ story: Story) {
-        guard story.sourceURL != nil else {
-            return
+        if story.sourceURL != nil {
+            showStoryViewController(with: story)
+        } else {
+            showCommentsViewController(with: story)
         }
-        
-        showStoryViewController(with: story)
     }
 }
 
@@ -210,7 +217,13 @@ extension StoriesViewController: StoriesDataSourceStoryDelegate {
 extension StoriesViewController: StoriesDataSourceCellDelegate {
     
     func storyViewCell(_ cell: StoryViewCell, didPressCommentButton button: UIButton) {
-        print("comment")
+        guard let indexPath = collectionView.indexPath(for: cell),
+            let storyViewModel = storiesProvider.item(at: indexPath) else {
+                return
+        }
+        
+        let story = storyViewModel.story
+        showCommentsViewController(with: story)
     }
     
     func storyViewCell(_ cell: StoryViewCell, didPressShareButton button: UIButton) {

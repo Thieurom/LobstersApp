@@ -11,7 +11,7 @@ import UIKit
 class CommentsViewController: UIViewController {
     
     // MARK: - Data
-    
+    let story: Story
     private let commentsProvider: CommentsProvider
     private var commentsDataSource: CommentsDataSource!
     
@@ -28,8 +28,10 @@ class CommentsViewController: UIViewController {
     
     // MARK: - Initializers
     
-    init(commentsProvider: CommentsProvider) {
+    init(story: Story, commentsProvider: CommentsProvider) {
+        self.story = story
         self.commentsProvider = commentsProvider
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -44,6 +46,7 @@ class CommentsViewController: UIViewController {
         
         initViews()
         setUpViews()
+        loadComments()
     }
     
     // MARK: - Private helpers
@@ -67,5 +70,25 @@ class CommentsViewController: UIViewController {
         commentsDataSource.provider = commentsProvider
         collectionView.dataSource = commentsDataSource
         collectionView.delegate = commentsDataSource
+    }
+    
+    private func loadComments() {
+        let service = LobstersService()
+        
+        service.comments(forStoryId: story.id) { [weak self] (result) in
+            DispatchQueue.main.async {
+                if let strongSelf = self {
+                    switch result {
+                    case let .success(comments):
+                        let commentViewModels = comments.map { CommentViewModel(comment: $0) }
+                        strongSelf.commentsProvider.set(items: commentViewModels)
+                        strongSelf.collectionView.reloadData()
+                        
+                    case .failure:
+                        print("Error fetching comments")
+                    }
+                }
+            }
+        }
     }
 }

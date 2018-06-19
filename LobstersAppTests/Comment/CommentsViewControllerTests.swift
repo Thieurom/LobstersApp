@@ -16,8 +16,11 @@ class CommentsViewControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
+        let user = User(name: "")
+        let story = Story(id: "", title: "", sourceURL: nil, creationDate: Date(), submitter: user, commentCount: 0)
         let commentsProvider = CommentsProvider()
-        sut = CommentsViewController(commentsProvider: commentsProvider)
+        
+        sut = CommentsViewController(story: story, commentsProvider: commentsProvider)
         sut.loadViewIfNeeded()
     }
     

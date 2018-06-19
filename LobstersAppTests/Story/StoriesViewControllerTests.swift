@@ -13,6 +13,7 @@ class StoriesViewControllerTests: XCTestCase {
     
     var sut: StoriesViewController!
     var storiesProvider: StoriesProvider!
+    var story: Story!
     var storyViewModel: StoryViewModel!
     
     override func setUp() {
@@ -20,7 +21,7 @@ class StoriesViewControllerTests: XCTestCase {
         
         let user = User(name: "")
         let url = URL(string: "http://www.example.com")!
-        let story = Story(id: "1234", title: "", sourceURL: url, creationDate: Date(), submitter: user, commentCount: 0)
+        story = Story(id: "1234", title: "", sourceURL: url, creationDate: Date(), submitter: user, commentCount: 0)
         storyViewModel = StoryViewModel(story: story)
         
         storiesProvider = StoriesProvider()
@@ -108,6 +109,54 @@ class StoriesViewControllerTests: XCTestCase {
             XCTAssertNotNil(self.sut.presentedViewController)
             XCTAssertTrue(self.sut.presentedViewController is UIActivityViewController)
         }
+    }
+    
+    func testShowCommentsViewControllerWhenPressingCommentButtonOnCell() {
+        let mockNavigationController = MockNavigationController(rootViewController: sut)
+        UIApplication.shared.keyWindow?.rootViewController = mockNavigationController
+        
+        storiesProvider.set(items: [storyViewModel])
+        
+        let collectionView = sut.collectionView
+        collectionView.reloadData()
+        collectionView.layoutIfNeeded()
+        
+        guard let cell = collectionView.cellForItem(at: IndexPath(item: 0, section: 0)) as? StoryViewCell else {
+            XCTFail("Should get instance of StoryViewCell")
+            return
+        }
+        
+        cell.delegate?.storyViewCell(cell, didPressCommentButton: cell.commentButton)
+        
+        guard let commentsViewController = mockNavigationController.lastPushedViewController as? CommentsViewController else {
+            XCTFail("An instance of CommentsViewController should be pushed to stack")
+            return
+        }
+        
+        XCTAssertEqual(commentsViewController.story.id, "1234")
+        XCTAssertEqual(commentsViewController.story.sourceURL, URL(string: "http://www.example.com"))
+    }
+    
+    func testShowCommentsViewControllerWhenSelectingCell() {
+        let mockNavigationController = MockNavigationController(rootViewController: sut)
+        UIApplication.shared.keyWindow?.rootViewController = mockNavigationController
+        
+        story.sourceURL = nil
+        storyViewModel = StoryViewModel(story: story)
+        storiesProvider.set(items: [storyViewModel])
+        
+        let collectionView = sut.collectionView
+        collectionView.reloadData()
+        
+        collectionView.delegate?.collectionView!(collectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
+        
+        guard let commentsViewController = mockNavigationController.lastPushedViewController as? CommentsViewController else {
+            XCTFail("An instance of CommentsViewController should be pushed to stack")
+            return
+        }
+        
+        XCTAssertEqual(commentsViewController.story.id, "1234")
+        XCTAssertNil(commentsViewController.story.sourceURL)
     }
 }
 

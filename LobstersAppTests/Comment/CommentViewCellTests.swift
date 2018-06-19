@@ -18,11 +18,12 @@ class CommentViewCellTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
+        let user = User(name: "Foo")
+        let story = Story(id: "", title: "", sourceURL: nil, creationDate: Date(), submitter: user, commentCount: 0)
         let commentsProvider = CommentsProvider()
-        let controller = CommentsViewController(commentsProvider: commentsProvider)
+        let controller = CommentsViewController(story: story, commentsProvider: commentsProvider)
         controller.loadViewIfNeeded()
         
-        let user = User(name: "Foo")
         date = Date()
         let comment = Comment(id: "", creationDate: date, commenter: user, indentationLevel: 1, htmlComment: "<p>comment</p>")
         commentViewModel = CommentViewModel(comment: comment)

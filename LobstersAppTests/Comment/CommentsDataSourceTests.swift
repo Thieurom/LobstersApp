@@ -20,15 +20,16 @@ class CommentsDataSourceTests: XCTestCase {
         sut = CommentsDataSource()
         let commentsProvider = CommentsProvider()
         sut.provider = commentsProvider
-
-        let controller = CommentsViewController(commentsProvider: commentsProvider)
+        
+        let user = User(name: "")
+        let story = Story(id: "", title: "", sourceURL: nil, creationDate: Date(), submitter: user, commentCount: 0)
+        let controller = CommentsViewController(story: story, commentsProvider: commentsProvider)
         controller.loadViewIfNeeded()
         
         collectionView = controller.collectionView
         collectionView.dataSource = sut
         collectionView.delegate = sut
         
-        let user = User(name: "")
         let comment = Comment(id: "1234", creationDate: Date(), commenter: user, indentationLevel: 1, htmlComment: "")
         let commentViewModel = CommentViewModel(comment: comment)
         

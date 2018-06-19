@@ -20,7 +20,7 @@ class StoryViewControllerTests: XCTestCase {
         
         let user = User(name: "Foo")
         let url = URL(string: "http://www.example.com")!
-        story = Story(id: "", title: "Bar", sourceURL: url, creationDate: Date(), submitter: user, commentCount: 0)
+        story = Story(id: "1234", title: "Bar", sourceURL: url, creationDate: Date(), submitter: user, commentCount: 0)
         sut = StoryViewController(story: story)
         
         sut.loadViewIfNeeded()
@@ -61,6 +61,21 @@ class StoryViewControllerTests: XCTestCase {
             XCTAssertNotNil(self.sut.presentedViewController)
             XCTAssertTrue(self.sut.presentedViewController is UIActivityViewController)
         }
+    }
+    
+    func testPressCommentButton() {
+        let mockNavigationController = StoriesViewControllerTests.MockNavigationController(rootViewController: sut)
+        
+        UIApplication.shared.keyWindow?.rootViewController = mockNavigationController
+        
+        sut.commentButton.sendActions(for: .touchUpInside)
+        
+        guard let commentsViewController = mockNavigationController.lastPushedViewController as? CommentsViewController else {
+            XCTFail("An instance of CommentsViewController should be pushed to stack")
+            return
+        }
+        
+        XCTAssertEqual(commentsViewController.story.id, "1234")
     }
 }
 
