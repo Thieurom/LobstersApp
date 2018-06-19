@@ -52,6 +52,7 @@
 		D8D404B820CEB9470028371C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D404B720CEB9470028371C /* User.swift */; };
 		D8D404BA20CEB9530028371C /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D404B920CEB9530028371C /* UserTests.swift */; };
 		D8D404BC20CEC7C40028371C /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D404BB20CEC7C40028371C /* StoriesViewController.swift */; };
+		D8D82CFC20D8F3D1006BB66B /* String+HTMLAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D82CFB20D8F3D1006BB66B /* String+HTMLAttributedString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		D8D404B720CEB9470028371C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D8D404B920CEB9530028371C /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		D8D404BB20CEC7C40028371C /* StoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
+		D8D82CFB20D8F3D1006BB66B /* String+HTMLAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTMLAttributedString.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				D80F903520CFC78100F3D392 /* URLRequest+JSONRequest.swift */,
 				D80F903C20D0EFA400F3D392 /* DateFormatter+ISO8601Full.swift */,
 				D80F904420D16AD500F3D392 /* Date+TimeAgo.swift */,
+				D8D82CFB20D8F3D1006BB66B /* String+HTMLAttributedString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				D80F903D20D0EFA400F3D392 /* DateFormatter+ISO8601Full.swift in Sources */,
 				D81C86C120D65DFB00667960 /* CommentsViewController.swift in Sources */,
 				D81C86BB20D6537A00667960 /* Comment.swift in Sources */,
+				D8D82CFC20D8F3D1006BB66B /* String+HTMLAttributedString.swift in Sources */,
 				D8D404BC20CEC7C40028371C /* StoriesViewController.swift in Sources */,
 				D8D404B820CEB9470028371C /* User.swift in Sources */,
 				D8A7870920CED889007D505D /* StoryViewCell.swift in Sources */,

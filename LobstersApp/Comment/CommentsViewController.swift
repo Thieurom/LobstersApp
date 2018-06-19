@@ -20,8 +20,10 @@ class CommentsViewController: UIViewController {
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 0
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
         
         return collectionView
     }()
@@ -49,6 +51,12 @@ class CommentsViewController: UIViewController {
         loadComments()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.hidesBarsOnSwipe = false
+    }
+    
     // MARK: - Private helpers
     
     private func initViews() {
@@ -64,6 +72,16 @@ class CommentsViewController: UIViewController {
     }
     
     private func setUpViews() {
+        // navigation title
+        let titleLabel = UILabel()
+        
+        titleLabel.textColor = .bokaraGray
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        titleLabel.text = "Comments"
+        navigationItem.titleView = titleLabel
+        
+        // collection view
         collectionView.register(CommentViewCell.self, forCellWithReuseIdentifier: CommentViewCell.reuseIdentifier)
         
         commentsDataSource = CommentsDataSource()

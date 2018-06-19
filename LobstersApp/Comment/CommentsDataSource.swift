@@ -9,9 +9,4 @@
 import UIKit
 
 class CommentsDataSource: CollectionDataSource<CommentsProvider, CommentViewCell> {
-    
-    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // temporary size before adding and constrainting Cell's views
-        return CGSize(width: 50, height: 50)
-    }
 }

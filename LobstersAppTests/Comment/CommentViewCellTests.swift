@@ -73,6 +73,6 @@ class CommentViewCellTests: XCTestCase {
     func testSetCommentViewModelSetCommentTextView() {
         cell.viewModel = commentViewModel
         
-        XCTAssertEqual(cell.commentTextView.text, "<p>comment</p>")
+        XCTAssertEqual(cell.commentTextView.attributedText.string, "comment\n")
     }
 }
