@@ -13,6 +13,11 @@ enum StoriesResult {
     case failure(Error)
 }
 
+enum CommentsResult {
+    case success([Comment])
+    case failure(Error)
+}
+
 enum LobstersError: Error {
     case invalidParameter
     case nonexistData
@@ -68,6 +73,36 @@ class LobstersService {
             
             if let stories = try? jsonDecoder.decode(Array<Story>.self, from: data) {
                 completion(.success(stories))
+                return
+            } else {
+                completion(.failure(LobstersError.invalidJSON))
+                return
+            }
+        }
+        .resume()
+    }
+    
+    func comments(forStoryId storyId: String, completion: @escaping (CommentsResult) -> Void) {
+        let url = LobstersURL.comments(for: storyId)
+        let request = URLRequest.jsonRequest(url: url)
+        
+        session.dataTask(with: request) { (data, _, error) in
+            guard error == nil else {
+                completion(.failure(LobstersError.failedRequest))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(LobstersError.nonexistData))
+                return
+            }
+            
+            let jsonDecoder = JSONDecoder()
+            jsonDecoder.dateDecodingStrategy = .formatted(.iso8601Full)
+            
+            if let commentList = try? jsonDecoder.decode(CommentList.self, from: data) {
+                let comments = commentList.comments
+                completion(.success(comments))
                 return
             } else {
                 completion(.failure(LobstersError.invalidJSON))

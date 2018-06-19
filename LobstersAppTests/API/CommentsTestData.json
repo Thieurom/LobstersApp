@@ -1,0 +1,99 @@
+{
+    "short_id": "donlgu",
+    "short_id_url": "https://lobste.rs/s/donlgu",
+    "created_at": "2018-06-17T20:07:42.000-05:00",
+    "title": "systemd Services Are Easy",
+    "url": "https://blog.akerl.org/2016/05/26/systemd-services-are-easy/",
+    "score": 15,
+    "upvotes": 15,
+    "downvotes": 0,
+    "comment_count": 3,
+    "description": "",
+    "comments_url": "https://lobste.rs/s/donlgu/systemd_services_are_easy",
+    "submitter_user": {
+        "username": "rain1",
+        "created_at": "2016-04-03T11:33:05.000-05:00",
+        "is_admin": false,
+        "about": "(Deleted account)",
+        "is_moderator": false,
+        "karma": 2238,
+        "avatar_url": "/avatars/rain1-100.png",
+        "invited_by_user": "355E3B"
+    },
+    "tags": [
+             "systemd"
+             ],
+    "comments": [{
+                 "short_id": "ddvvra",
+                 "short_id_url": "https://lobste.rs/c/ddvvra",
+                 "created_at": "2018-06-18T00:44:50.000-05:00",
+                 "updated_at": "2018-06-18T00:44:50.000-05:00",
+                 "is_deleted": false,
+                 "is_moderated": false,
+                 "score": 3,
+                 "upvotes": 3,
+                 "downvotes": 0,
+                 "comment": "<p>Nice article. I must admin that I am a systemd fan. I much prefer it to the soup of raw text in rc.d folders. Finally, an init system system for the 1990s.</p>\n",
+                 "url": "https://lobste.rs/s/donlgu/systemd_services_are_easy#c_ddvvra",
+                 "indent_level": 1,
+                 "commenting_user": {
+                 "username": "seff",
+                 "created_at": "2016-06-13T13:31:18.000-05:00",
+                 "is_admin": false,
+                 "about": "Just someone interested in technology. Software tester by trade.",
+                 "is_moderator": false,
+                 "karma": 63,
+                 "avatar_url": "/avatars/seff-100.png",
+                 "invited_by_user": "mock"
+                 }
+                 },
+                 {
+                 "short_id": "f9v3ml",
+                 "short_id_url": "https://lobste.rs/c/f9v3ml",
+                 "created_at": "2018-06-18T00:37:01.000-05:00",
+                 "updated_at": "2018-06-18T00:37:01.000-05:00",
+                 "is_deleted": false,
+                 "is_moderated": false,
+                 "score": 1,
+                 "upvotes": 1,
+                 "downvotes": 0,
+                 "comment": "<p>I recently discovered how horribly complicated traditional init scripts are whilst using Alpine Linux.  OpenRC might be modern, but it’s still complicated.</p>\n<p>Runit seems to be the nicest I’ve come across.  It asks the question “why do we need to do all of this anyway?  What’s the point?”</p>\n<p>It rejects the idea of forking and instead requires everything to run in the foreground:</p>\n<p>/etc/sv/nginx/run:</p>\n<pre><code>#!/bin/sh\nexec nginx -g 'daemon off;'\n</code></pre>\n<p>/etc/sv/smbd/run</p>\n<pre><code>#!/bin/sh\nmkdir -p /run/samba\nexec smbd -F -S\n</code></pre>\n<p>/etc/sv/murmur/run</p>\n<pre><code>#!/bin/sh\nexec murmurd -ini /etc/murmur.ini -fg 2&gt;&amp;1\n</code></pre>\n<p>Waiting for other services to load first does not require special features in the init system itself.  Instead you can write the dependency directly into the service file in the form of a “start this service” request:</p>\n<p>/etc/sv/cron/run</p>\n<pre><code> #!/bin/sh\n sv start socklog-unix || exit 1\n exec cron -f\n</code></pre>\n<p>Where my implementation of runit (Void Linux) seems to fall flat on its face is logging.  I hoped it would do something nice like redirect stdout and stderr of these supervised processes by default.  Instead you manually have to create a new file and folder for each service that explicitly runs its own copy of the logger.   Annoying.  I hope I’ve been missing something.</p>\n<p>The only other feature I can think of is “reloading” a service, which Aker does in the article via this line:</p>\n<blockquote>\n<p>ExecReload=kill -HUP $MAINPID</p>\n</blockquote>\n<p>I’d make the argument that in all circumstances where you need this you could probably run the command yourself.  Thoughts?</p>\n",
+                 "url": "https://lobste.rs/s/donlgu/systemd_services_are_easy#c_f9v3ml",
+                 "indent_level": 1,
+                 "commenting_user": {
+                 "username": "Hales",
+                 "created_at": "2017-11-20T02:12:38.000-06:00",
+                 "is_admin": false,
+                 "about": "FOSS and electronics peregrinator.  Enjoys repairing old equipment on long, sandy beaches and sleeps in a laboratory.\r\n\r\nhttp://halestrom.net",
+                 "is_moderator": false,
+                 "karma": 50,
+                 "avatar_url": "/avatars/Hales-100.png",
+                 "invited_by_user": "gerikson"
+                 }
+                 },
+                 {
+                 "short_id": "y0uprx",
+                 "short_id_url": "https://lobste.rs/c/y0uprx",
+                 "created_at": "2018-06-18T00:58:50.000-05:00",
+                 "updated_at": "2018-06-18T00:58:50.000-05:00",
+                 "is_deleted": false,
+                 "is_moderated": false,
+                 "score": 2,
+                 "upvotes": 2,
+                 "downvotes": 0,
+                 "comment": "<blockquote>\n<p>Instead you can write the dependency directly into the service file in the form of a “start this service” request</p>\n</blockquote>\n<p>But that neither solves starting daemons in parallel, or even at all, if they are run in the ‘wrong’ order. Depending on network being setup, for example, brings complexity to each of those shell scripts.</p>\n<p>I’m of the opinion that a dsl of whitelisted items (systemd) is much nicer to handle than writing shell scripts, along with the standardized commands instead of having to know which services that accepts ‘reload’ vs ‘restart’ or some other variation in commands - those kind of niceties are gone when the shell scripts are individually an interface each.</p>\n",
+                 "url": "https://lobste.rs/s/donlgu/systemd_services_are_easy#c_y0uprx",
+                 "indent_level": 2,
+                 "commenting_user": {
+                 "username": "iamnearlythere",
+                 "created_at": "2015-10-26T07:45:11.000-05:00",
+                 "is_admin": false,
+                 "about": "iamnearlythere.com\r\nhelmertz.com\r\n\r\nA programmer wannabe",
+                 "is_moderator": false,
+                 "karma": 49,
+                 "avatar_url": "/avatars/iamnearlythere-100.png",
+                 "invited_by_user": "tedu"
+                 }
+                 }
+                 ]
+}

@@ -15,4 +15,8 @@ struct LobstersURL {
     static var popularStories: URL {
         return URL(string: baseURLString)!
     }
+    
+    static func comments(for storyId: String) -> URL {
+        return URL(string: baseURLString + "/s/" + storyId)!
+    }
 }

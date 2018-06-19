@@ -182,6 +182,140 @@ class LobstersServiceTests: XCTestCase {
             XCTAssertEqual(error as? LobstersError, .invalidParameter)
         }
     }
+    
+    // MARK: - Tests for getting comments for a specified story
+    
+    func testCommentsUseCorrectURL() {
+        let mockURLSession = MockURLSession(data: nil, response: nil, error: nil)
+        sut = LobstersService(session: mockURLSession)
+        
+        sut.comments(forStoryId: "123abc") { (_) in }
+        
+        guard let request = mockURLSession.caughtRequest else {
+            XCTFail("Should catch request")
+            return
+        }
+        
+        guard let url = request.url else {
+            XCTFail("Request should catch url")
+            return
+        }
+        
+        XCTAssertEqual(url.host, "lobste.rs")
+        XCTAssertEqual(url.path, "/s/123abc")
+    }
+    
+    func testCommentsAcceptJSON() {
+        let mockURLSession = MockURLSession(data: nil, response: nil, error: nil)
+        sut = LobstersService(session: mockURLSession)
+        
+        sut.comments(forStoryId: "123abc") { (_) in }
+
+        guard let request = mockURLSession.caughtRequest else {
+            XCTFail("Should catch request")
+            return
+        }
+        
+        XCTAssertEqual(request.value(forHTTPHeaderField: "Accept"), "application/json")
+    }
+    
+    func testCommentsSucceedWithComments() {
+        let testBundle = Bundle(for: type(of: self))
+        
+        guard let fileURL = testBundle.url(forResource: "CommentsTestData", withExtension: "json") else {
+            fatalError("Error locating test data")
+        }
+        
+        guard let json = try? Data(contentsOf: fileURL) else {
+            fatalError("Error reading test data")
+        }
+        
+        let mockURLSession = MockURLSession(data: json, response: nil, error: nil)
+        sut = LobstersService(session: mockURLSession)
+        
+        let commentsExpectation = expectation(description: "Comments")
+        var comments: [Comment]?
+        
+        sut.comments(forStoryId: "123abc") { (result) in
+            if case let .success(commentsResult) = result {
+                comments = commentsResult
+                commentsExpectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 1.0) { (_) in
+            XCTAssertNotNil(comments)
+        }
+    }
+    
+    func testCommentsFailWithInvalidData() {
+        let mockURLSession = MockURLSession(data: Data(), response: nil, error: nil)
+        sut = LobstersService(session: mockURLSession)
+        
+        let errorExpectation = expectation(description: "Invalid Data Error")
+        var error: Error?
+        
+        sut.comments(forStoryId: "123abc") { (result) in
+            if case let .failure(commentsError) = result {
+                error = commentsError
+                errorExpectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 1.0) { (_) in
+            XCTAssertEqual(error as? LobstersError, .invalidJSON)
+        }
+    }
+    
+    func testCommentsFailWithNilData() {
+        let mockURLSession = MockURLSession(data: nil, response: nil, error: nil)
+        sut = LobstersService(session: mockURLSession)
+        
+        let errorExpectation = expectation(description: "Nil Data Error")
+        var error: Error?
+        
+        sut.comments(forStoryId: "123abc") { (result) in
+            if case let .failure(commentsError) = result {
+                error = commentsError
+                errorExpectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 1.0) { (_) in
+            XCTAssertEqual(error as? LobstersError, .nonexistData)
+        }
+    }
+    
+    func testCommentsFailWithRequestError() {
+        let testBundle = Bundle(for: type(of: self))
+        
+        guard let fileURL = testBundle.url(forResource: "CommentsTestData", withExtension: "json") else {
+            fatalError("Error locating test data")
+        }
+        
+        guard let json = try? Data(contentsOf: fileURL) else {
+            fatalError("Error reading test data")
+        }
+        
+        let serverError = NSError(domain: "Request Error", code: 1234, userInfo: nil)
+        
+        let mockURLSession = MockURLSession(data: json, response: nil, error: serverError)
+        sut = LobstersService(session: mockURLSession)
+        
+        let errorExpectation = expectation(description: "Request Error")
+        var error: Error?
+        
+        sut.comments(forStoryId: "123abc") { (result) in
+            if case let .failure(commentsError) = result {
+                error = commentsError
+                errorExpectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 1.0) { (_) in
+            XCTAssertEqual(error as? LobstersError, .failedRequest)
+        }
+    }
 }
 
 // MARK: -
