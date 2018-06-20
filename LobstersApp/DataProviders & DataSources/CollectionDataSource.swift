@@ -29,6 +29,8 @@ class CollectionDataSource<Provider: CollectionDataProvider, Cell: UICollectionV
     var provider: Provider?
     private var sizingCell = Cell()
     
+    // MARK: - UICollectionView Data Source
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         guard let provider = provider else {
             return 0
@@ -57,11 +59,19 @@ class CollectionDataSource<Provider: CollectionDataProvider, Cell: UICollectionV
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        return UICollectionReusableView()
+    }
+    
+    // MARK: - UICollectionView Delegate
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     }
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.size.width
@@ -78,5 +88,9 @@ class CollectionDataSource<Provider: CollectionDataProvider, Cell: UICollectionV
         sizingCell.prepareForReuse()
         
         return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize.zero
     }
 }

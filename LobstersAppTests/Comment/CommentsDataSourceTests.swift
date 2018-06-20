@@ -17,14 +17,19 @@ class CommentsDataSourceTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
+        let user = User(name: "")
+        let story = Story(id: "", title: "", sourceURL: nil, creationDate: Date(), submitter: user, commentCount: 0)
+        
         sut = CommentsDataSource()
         let commentsProvider = CommentsProvider()
         sut.provider = commentsProvider
+        sut.headerViewModel = StoryViewModel(story: story)
         
-        let user = User(name: "")
-        let story = Story(id: "", title: "", sourceURL: nil, creationDate: Date(), submitter: user, commentCount: 0)
         let controller = CommentsViewController(story: story, commentsProvider: commentsProvider)
         controller.loadViewIfNeeded()
+        
+        let fakeLobstersService = FakeLobstersService()
+        controller.commentsLoader = fakeLobstersService
         
         collectionView = controller.collectionView
         collectionView.dataSource = sut
@@ -84,6 +89,27 @@ class CommentsDataSourceTests: XCTestCase {
         XCTAssertNotNil(cell.viewModel)
         XCTAssertEqual(cell.viewModel?.comment.id, "1234")
     }
+    
+    func testViewForHeader() {
+        collectionView.reloadData()
+        collectionView.layoutIfNeeded()
+        
+        let headerView = collectionView.supplementaryView(forElementKind: UICollectionElementKindSectionHeader, at: IndexPath(item: 0, section: 0))
+        
+        XCTAssertTrue(headerView is StoryViewCell)
+    }
+    
+    func testSetStoryViewCellDelegate() {
+        collectionView.reloadData()
+        collectionView.layoutIfNeeded()
+        
+        guard let headerView = collectionView.supplementaryView(forElementKind: UICollectionElementKindSectionHeader, at: IndexPath(item: 0, section: 0)) as? StoryViewCell else {
+            XCTFail("Fail to get header view")
+            return
+        }
+        
+        XCTAssertTrue(headerView.delegate is CommentsDataSource)
+    }
 }
 
 // MARK: -
@@ -98,6 +124,7 @@ extension CommentsDataSourceTests {
             let layout = UICollectionViewFlowLayout()
             let mockCollectionView = MockCollectionView(frame: CGRect(x: 0, y: 0, width: 320, height: 480), collectionViewLayout: layout)
             
+            mockCollectionView.register(StoryViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: StoryViewCell.reuseIdentifier)
             mockCollectionView.register(CommentViewCell.self, forCellWithReuseIdentifier: CommentViewCell.reuseIdentifier)
             
             return mockCollectionView
@@ -109,6 +136,15 @@ extension CommentsDataSourceTests {
             cellGotDequeued = true
             
             return super.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+        }
+    }
+    
+    // MARK: - Fake Lobsters Service
+    
+    class FakeLobstersService: LobstersService {
+        
+        override func comments(forStoryId storyId: String, completion: @escaping (CommentsResult) -> Void) {
+            completion(.success([]))
         }
     }
 }

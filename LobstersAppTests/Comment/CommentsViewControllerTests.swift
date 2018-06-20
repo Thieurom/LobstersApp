@@ -22,6 +22,7 @@ class CommentsViewControllerTests: XCTestCase {
         
         sut = CommentsViewController(story: story, commentsProvider: commentsProvider)
         sut.loadViewIfNeeded()
+        sut.commentsLoader = FakeLobstersService()
     }
     
     override func tearDown() {
@@ -42,5 +43,37 @@ class CommentsViewControllerTests: XCTestCase {
     
     func testCollectionViewDataSourceEqualDelegate() {
         XCTAssertEqual(sut.collectionView.dataSource as? CommentsDataSource, sut.collectionView.delegate as? CommentsDataSource)
+    }
+    
+//    func testPressShareButtonOnHeaderView() {
+//        let collectionView = sut.collectionView
+//        collectionView.reloadData()
+//        collectionView.layoutIfNeeded()
+//        
+//        guard let headerView = collectionView.supplementaryView(forElementKind: UICollectionElementKindSectionHeader, at: IndexPath(item: 0, section: 0)) as? StoryViewCell else {
+//            XCTFail("Fail to get header view")
+//            return
+//        }
+//        
+//        headerView.delegate?.storyViewCell(headerView, didPressShareButton: headerView.shareButton)
+//        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
+//            XCTAssertNotNil(self.sut.presentedViewController)
+//            XCTAssertTrue(self.sut.presentedViewController is UIActivityViewController)
+//        }
+//    }
+}
+
+// MAKR: -
+
+extension CommentsViewControllerTests {
+    
+    // MARK: - Fake Lobsters Service
+    
+    class FakeLobstersService: LobstersService {
+        
+        override func comments(forStoryId storyId: String, completion: @escaping (CommentsResult) -> Void) {
+            completion(.success([]))
+        }
     }
 }

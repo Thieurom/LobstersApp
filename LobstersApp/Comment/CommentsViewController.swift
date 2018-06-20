@@ -14,6 +14,7 @@ class CommentsViewController: UIViewController {
     let story: Story
     private let commentsProvider: CommentsProvider
     private var commentsDataSource: CommentsDataSource!
+    var commentsLoader: LobstersService!
     
     // MARK: - Views
     
@@ -48,6 +49,7 @@ class CommentsViewController: UIViewController {
         
         initViews()
         setUpViews()
+        commentsLoader = LobstersService()
         loadComments()
     }
     
@@ -82,18 +84,20 @@ class CommentsViewController: UIViewController {
         navigationItem.titleView = titleLabel
         
         // collection view
+        collectionView.register(StoryViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: StoryViewCell.reuseIdentifier)
         collectionView.register(CommentViewCell.self, forCellWithReuseIdentifier: CommentViewCell.reuseIdentifier)
         
         commentsDataSource = CommentsDataSource()
+        commentsDataSource.headerViewModel = StoryViewModel(story: story)
         commentsDataSource.provider = commentsProvider
+        commentsDataSource.cellDelegate = self
+        
         collectionView.dataSource = commentsDataSource
         collectionView.delegate = commentsDataSource
     }
     
     private func loadComments() {
-        let service = LobstersService()
-        
-        service.comments(forStoryId: story.id) { [weak self] (result) in
+        commentsLoader.comments(forStoryId: story.id) { [weak self] (result) in
             DispatchQueue.main.async {
                 if let strongSelf = self {
                     switch result {
@@ -108,5 +112,24 @@ class CommentsViewController: UIViewController {
                 }
             }
         }
+    }
+}
+
+// MARK: - StoriesDataSource Cell Delegate
+
+extension CommentsViewController: StoriesDataSourceCellDelegate {
+    
+    func storyViewCell(_ cell: StoryViewCell, didPressCommentButton button: UIButton) {
+    }
+    
+    func storyViewCell(_ cell: StoryViewCell, didPressShareButton button: UIButton) {
+        var sharedContent = "\(story.title)"
+        if let url = story.sourceURL {
+            sharedContent += " - \(url.absoluteString)"
+        }
+        
+        let activityController = UIActivityViewController(activityItems: [sharedContent], applicationActivities: nil)
+        
+        present(activityController, animated: true, completion: nil)
     }
 }
