@@ -82,6 +82,7 @@ class CommentsViewController: UIViewController {
         titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         titleLabel.text = "Comments"
         navigationItem.titleView = titleLabel
+        navigationController?.isNavigationBarHidden = false
         
         // collection view
         collectionView.register(StoryViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: StoryViewCell.reuseIdentifier)

@@ -75,6 +75,12 @@ class StoryViewController: UIViewController {
         loadStory(story)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.hidesBarsOnSwipe = true
+    }
+    
     // MARK: - Private helpers
     
     private func setUpTitleView() {
@@ -96,8 +102,6 @@ class StoryViewController: UIViewController {
         
         titleLabel.text = text.uppercased()
         navigationItem.titleView = titleLabel
-        
-        navigationController?.hidesBarsOnSwipe = true
     }
     
     private func setUpWebView() {
